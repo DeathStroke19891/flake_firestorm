@@ -82,6 +82,7 @@
     vim
     home-manager
     (import ./derivations/rebuild.nix {inherit pkgs;})
+    (import ./derivations/home-rebuild.nix {inherit pkgs;})
     wget
     libnotify
     ntfs3g
