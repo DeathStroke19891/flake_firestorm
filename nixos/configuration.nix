@@ -77,7 +77,7 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Testing rebuild script
+  # Testing new rebuild script
   environment.systemPackages = with pkgs; [
     vim
     home-manager
