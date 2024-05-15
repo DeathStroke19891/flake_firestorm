@@ -7,6 +7,6 @@ pkgs.writeShellScriptBin "rebuild" ''
   ${pkgs.git}/bin/git diff -U0 *.nix
   echo "NixOS Rebuilding..."
   sudo nixos-rebuild switch --flake ~/flake_firestorm/ &>~/flake_firestorm/nixos/nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
-  gen=$(nixos-rebuild list-generations | grep current)
+  gen=$(nixos-rebuild --flake ~/flake_firestorm/ list-generations | grep current)
   ${pkgs.git}/bin/git commit -am "$gen"
 ''
