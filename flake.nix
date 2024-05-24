@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
