@@ -164,6 +164,16 @@
       setSocketVariable = true;
     };
   };
+
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = ["parzival"];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
