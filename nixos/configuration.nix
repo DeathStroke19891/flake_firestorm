@@ -67,7 +67,7 @@
   users.users.parzival = {
     isNormalUser = true;
     description = "Sridhar D Kedlaya";
-    extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power"];
+    extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker"];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -155,6 +155,14 @@
     sddm.enable = true;
     sddm.theme = "${import ./derivations/sddm-theme.nix {inherit pkgs;}}";
     sddm.wayland.enable = true;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
