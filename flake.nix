@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs_stable.url = "github:nixos/nixpkgs/nixos-23.11";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    nix-alien.url = "github:thiagokokada/nix-alien";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +19,6 @@
 
       pkgs = import nixpkgs {
         inherit system;
-
         config = {
           allowUnfree = true;
         };

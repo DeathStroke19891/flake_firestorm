@@ -7,6 +7,10 @@
   pkgs,
   ...
 }: {
+  nixpkgs.overlays = [
+    inputs.nix-alien.overlays.default
+  ];
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -95,6 +99,7 @@
     libsForQt5.qt5ct
     libsForQt5.qt5.qtgraphicaleffects
     qt6Packages.qt6ct
+    nix-alien
   ];
 
   fonts.packages = with pkgs; [
