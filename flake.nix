@@ -9,9 +9,10 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, auto-cpufreq, ... }@inputs:
+  outputs = { self, nixpkgs, auto-cpufreq, stylix, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -31,9 +32,9 @@
             modules = [
               ./nixos/configuration.nix
               auto-cpufreq.nixosModules.default
+              stylix.nixosModules.stylix
             ];
           };
         };
-
       };
 }

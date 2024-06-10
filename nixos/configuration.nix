@@ -178,6 +178,8 @@
     enable = true;
   };
 
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+  stylix.image = /home/parzival/pictures/wallpapers/hacking.jpg;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
