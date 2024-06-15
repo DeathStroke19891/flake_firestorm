@@ -141,6 +141,10 @@
 
   programs.zsh.enable = true;
 
+  programs.steam = {
+    enable = true;
+  };
+
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
