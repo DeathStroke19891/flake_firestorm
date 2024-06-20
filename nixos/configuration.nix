@@ -183,6 +183,11 @@
     '';
   };
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+
   services.atd = {
     enable = true;
   };
