@@ -100,6 +100,7 @@
     libsForQt5.qt5.qtgraphicaleffects
     qt6Packages.qt6ct
     nix-alien
+    docker-compose
   ];
 
   fonts.packages = with pkgs; [
@@ -173,6 +174,8 @@
       setSocketVariable = true;
     };
   };
+
+  virtualisation.podman.enable = true;
 
   services.postgresql = {
     enable = true;
