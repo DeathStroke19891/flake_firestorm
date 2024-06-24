@@ -50,6 +50,7 @@
   };
 
   # Configure keymap in X11
+
   services.xserver.xkb = {
     layout = "us";
     variant = "dvp";
@@ -71,7 +72,7 @@
   users.users.parzival = {
     isNormalUser = true;
     description = "Sridhar D Kedlaya";
-    extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker"];
+    extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirt"];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -161,6 +162,9 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.xserver.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
+
   services.displayManager = {
     sddm.enable = true;
     sddm.theme = "${import ./derivations/sddm-theme.nix {inherit pkgs;}}";
@@ -176,6 +180,27 @@
   };
 
   virtualisation.podman.enable = true;
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })
+          .fd
+        ];
+      };
+    };
+  };
+
+  programs.virt-manager.enable = true;
 
   services.postgresql = {
     enable = true;
