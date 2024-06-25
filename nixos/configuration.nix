@@ -72,7 +72,7 @@
   users.users.parzival = {
     isNormalUser = true;
     description = "Sridhar D Kedlaya";
-    extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirt"];
+    extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirtd"];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
