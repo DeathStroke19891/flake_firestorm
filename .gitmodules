@@ -1,0 +1,3 @@
+[submodule "home-manager/filthy"]
+	path = home-manager/filthy
+	url = git@github.com:DeathStroke19891/filthy.git

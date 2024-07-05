@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Flake Firestorm";
 
   inputs = {
     # Nixpkgs
@@ -8,23 +8,32 @@
     # Also see the 'stable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-alien.url = "github:thiagokokada/nix-alien";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     auto-cpufreq = {
-          url = "github:AdnanHodzic/auto-cpufreq";
-          inputs.nixpkgs.follows = "nixpkgs";
-        };
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur.url = "github:nix-community/NUR";
+    catppuccin.url = "github:catppuccin/nix";
+    nix-colors.url = "github:misterio77/nix-colors";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = {
     self,
-    nixpkgs,
-    home-manager,
-    auto-cpufreq,
-    ...
+      nixpkgs,
+      home-manager,
+      auto-cpufreq,
+      nix-index-database,
+      catppuccin,
+      ...
   } @ inputs: let
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.
@@ -75,6 +84,8 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+          nix-index-database.hmModules.nix-index
+          catppuccin.homeManagerModules.catppuccin
         ];
       };
     };
