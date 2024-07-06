@@ -100,7 +100,7 @@
   environment.systemPackages = with pkgs; [
     vim
     rebuild
-    # (import ./derivations/home-rebuild.nix {inherit pkgs;})
+    home-rebuild
     wget
     libnotify
     ntfs3g
