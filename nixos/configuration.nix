@@ -70,7 +70,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   # Enable networking
   networking.nameservers = ["9.9.9.9"];
   networking.networkmanager.enable = true;
@@ -81,7 +80,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
 
   time.timeZone = "Asia/Kolkata";
 
@@ -99,11 +97,9 @@
     LC_TIME = "en_IN";
   };
 
-
-
   environment.systemPackages = with pkgs; [
     vim
-    # (import ./derivations/rebuild.nix {inherit pkgs;})
+    rebuild
     # (import ./derivations/home-rebuild.nix {inherit pkgs;})
     wget
     libnotify
@@ -130,7 +126,6 @@
     HYPRCURSOR_THEME = "hyprcursor_Dracula";
     HYPRCURSOR_SIZE = "24";
   };
-
 
   programs.nix-ld = {
     enable = true;
@@ -231,7 +226,6 @@
     theme = "${pkgs.astronaut-sddm-theme}";
     wayland.enable = true;
   };
-
 
   services.postgresql = {
     enable = true;
