@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+CHINESE_NUMBERS=$(echo "{ \"一\": 1, \"二\": 2, \"三\": 3, \"四\": 4, \"五\": 5, \"六\": 6, \"七\": 7, \"八\": 8, \"九\": 9, \"十\": 10 }" | jq)
+CURRENT_WORKSPACE=$(jq .[\"$1\"] <<< $CHINESE_NUMBERS)
+hyprctl --instance 0 dispatch workspace $CURRENT_WORKSPACE

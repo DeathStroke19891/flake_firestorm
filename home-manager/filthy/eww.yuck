@@ -1,0 +1,185 @@
+(defpoll time :interval "1s"
+  :initial "00:00:00"
+  `echo "$(date +%H)\\n$(date +%M)\\n$(date +%S)"`)
+
+(defpoll battery :interval "3m"
+  :initial "{\"percentage\": \"null\", \"status\": \"null\"}"
+  `./scripts/battery.sh`)
+
+(defpoll wifi :interval "15s"
+  :initial "Not Connected"
+  `./scripts/wifi.sh`)
+
+(defpoll current-brightness :interval "1s"
+  :initial 100
+  `light`)
+
+(defpoll vol :interval "1s"
+  :initial "100"
+  `pulsemixer --get-volume | hck -D '\\n' | head -n 1`)
+
+
+(deflisten workspaces :initial "[]" "bash ./scripts/get-workspaces")
+(deflisten current_workspace :initial "一" "bash ./scripts/get-active-workspace")
+
+(defvar sound false)
+(defvar bright false)
+(defvar power false)
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "10px"
+    :y "0%"
+    :width "35px"
+    :height "97.5%"
+    :anchor "center left")
+  :stacking "fg"
+  :exclusive true
+  (container))
+
+(defwidget container []
+  (box :class "container"
+    :orientation "v"
+    (top-bar)
+    (center-bar)
+    (bottom-bar)))
+
+(defwidget top-bar []
+  (box :class "top-bar"
+    :orientation "v"
+    :valign "start"
+    :space-evenly "false"
+    (launcher)
+    (workspaces)))
+
+(defwidget launcher []
+  (button :class "launcher"
+    :onclick "notify-send 'Launcher' 'Clicked Launcher'"
+    (image :path "./assets/hermit.png"
+      :image-width 38
+      :image-height 34)))
+
+(defwidget center-bar []
+  (box :class "center-bar"
+    :orientation "v"
+    :valign "center"
+    :space-evenly "false"
+    (button :class "clock"
+      :onclick "notify-send 'Time' 'Clicked Time'"
+      time)))
+
+(defwidget bottom-bar []
+  (box :class "bottom-bar"
+    :orientation "v"
+    :space-evenly "false"
+    :valign "end"
+    :spacing 4
+    (battery)
+    (wifi)
+    (bright)
+    (sound)
+    (power)))
+
+(defwidget battery []
+  (image :class "battery"
+    :path "./assets/the_one.png"
+    :image-width 45
+    :image-height 41
+    :tooltip "Battery: ${battery.percentage}%; Status: ${battery.status}"))
+
+(defwidget wifi []
+  (button :class "wifi"
+    :onclick "alacritty --title \"Connect to the Internet\" -e nmtui & disown"
+    (image :path "./assets/wireless-router.png"
+      :image-width 38
+      :image-height 34
+      :tooltip "${wifi}")))
+
+(defwidget sound []
+  (eventbox :onhover "eww update sound=true"
+    :onhoverlost "eww update sound=false"
+    (box    :orientation "v"
+      :space-evenly false
+      (revealer :class "sound"
+        :transition "slidedown"
+        :reveal sound
+        :duration "550ms"
+        (scale 
+          :orientation "v"
+          :flipped true
+          :tooltip "Volume: ${vol}%" 
+          :value vol 
+          :onchange "pulsemixer --set-volume {}"
+          :max 101 
+          :min 0))
+      (image :class "volume-icon"
+        :path "./assets/sound.png"
+        :image-width 40
+        :image-height 36))))
+
+(defwidget power []
+  (eventbox :onhover "eww update power=true"
+    :onhoverlost "eww update power=false"
+    (box    :orientation "v"
+      :space-evenly false
+      (revealer :class "power"
+        :transition "slidedown"
+        :reveal power
+        :duration "550ms"
+        (box :orientation "v"
+             :space-evenly false
+        (button :class "reboot-icon"
+                :onclick "reboot; echo \"Rebooting...\""
+                (image :class "reboot-icon"
+                  :path "./assets/reboot.png"
+                  :image-width 45
+                  :image-height 36))
+        (button :class "lock-icon"
+                :onclick "hyprlock >> /tmp/.logs"
+                (image :class "lock-icon"
+                  :path "./assets/lock.png"
+                  :image-width 45
+                  :image-height 36))
+        (button :class "logout-icon"
+                :onclick "hyprctl dispatch exit"
+                (image :class "logout-icon"
+                  :path "./assets/logout.png"
+                  :image-width 38
+                  :image-height 36))))
+      (button :class "power-icon"
+        :onclick "shutdown now"
+        (image :class "power-icon"
+          :path "./assets/power_menu.png"
+          :image-width 45
+          :image-height 36)))))
+
+(defwidget bright []
+  (eventbox :onhover "eww update bright=true"
+    :onhoverlost "eww update bright=false"
+    (box    :orientation "v"
+      :space-evenly false
+      (revealer :class "bright"
+        :transition "slidedown"
+        :reveal bright
+        :duration "550ms"
+        (scale :orientation "v"
+          :flipped true
+          :value current-brightness 
+          :tooltip "Brightness: ${current-brightness}%" 
+          :onchange "light -S {}"
+          :max 101 
+          :min 1))
+      (image :class "brightness-icon"
+        :path "./assets/light-bulb.png"
+        :image-width 45
+        :image-height 41
+      ))))
+
+(defwidget workspaces []
+  (eventbox :onscroll "./scripts/change-active-workspace.py {} ${current_workspace}" :class "workspaces-widget"
+    (box :orientation "v"
+      (label :text "${workspaces}${current_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick ". ./scripts/click-active-workspace ${workspace.id}"
+          (box :class "workspace ${workspace.id == current_workspace ? "workspace_current" : ""} ${current_workspace} ${workspace.id} ${workspace.windows > 0 ? "workspace_not_empty" : ""}"
+            (label :text "${workspace.id}")))))))

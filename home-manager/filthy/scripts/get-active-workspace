@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+    CHINESE_NUMBERS=(一 二 三 四 五 六 七 八 九)
+    CURRENT_WORKSPACE=$(hyprctl monitors -j | jq '.[] | select(.focused) |  .activeWorkspace.id')
+    echo ${CHINESE_NUMBERS[$CURRENT_WORKSPACE-1]}
+done
