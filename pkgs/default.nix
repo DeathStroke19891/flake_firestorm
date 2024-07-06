@@ -7,4 +7,5 @@ pkgs: {
   alarm = pkgs.callPackage ./alarm { inherit pkgs; };
   pass-show = pkgs.callPackage ./pass-show { inherit pkgs; };
   screenshot = pkgs.callPackage ./screenshot { inherit pkgs; };
+  rebuild = pkgs.callPackage ./rebuild { inherit pkgs; };
 }
