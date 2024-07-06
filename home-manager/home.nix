@@ -6,7 +6,6 @@
   pkgs,
   ...
 }: {
-
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   imports = [
