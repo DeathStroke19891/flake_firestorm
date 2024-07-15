@@ -241,6 +241,7 @@
     nodejs_22
     pyright
     clang-tools
+    tig
 
     catppuccin-qt5ct
     cinnamon.nemo-with-extensions
