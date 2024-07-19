@@ -242,6 +242,7 @@
     pyright
     clang-tools
     tig
+    act
 
     amfora
 
