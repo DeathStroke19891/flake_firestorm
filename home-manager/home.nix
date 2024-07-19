@@ -243,6 +243,8 @@
     clang-tools
     tig
 
+    amfora
+
     catppuccin-qt5ct
     cinnamon.nemo-with-extensions
     yazi
