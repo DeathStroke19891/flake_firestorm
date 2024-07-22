@@ -227,6 +227,7 @@
     gimp
     planify
     bookworm
+    mcomix
 
     jq
     socat
