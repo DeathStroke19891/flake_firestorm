@@ -245,6 +245,7 @@
     tig
     act
 
+    vscode
     amfora
 
     catppuccin-qt5ct

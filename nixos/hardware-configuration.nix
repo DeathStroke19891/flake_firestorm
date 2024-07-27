@@ -18,13 +18,19 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/506fa2c7-6f47-42f2-904d-e79b8aff0038";
+    device = "/dev/disk/by-uuid/9e1d995a-5abc-4620-b9c4-3f83735930f6";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/7ABD-CB5E";
+    device = "/dev/disk/by-uuid/D90B-735F";
     fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
+
+  fileSystems."/home/parzival" = {
+    device = "/dev/disk/by-uuid/6bc3e635-5962-4f93-95d1-e9abaee504f5";
+    fsType = "ext4";
   };
 
   swapDevices = [];
@@ -34,6 +40,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s20f0u2.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

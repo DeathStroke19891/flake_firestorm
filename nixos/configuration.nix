@@ -67,8 +67,12 @@
 
   # FIXME: Add the rest of your current configuration
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Enable networking
@@ -213,6 +217,7 @@
   # sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
+    package = pkgs.stable.pipewire;
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
