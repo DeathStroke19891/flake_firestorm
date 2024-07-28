@@ -224,13 +224,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  # services.jack = {
-  #   jackd.enable = true;
-  #   alsa.enable = false;
-  #   loopback = {
-  #     enable = true;
-  #   }
-  # }
   #services.xserver.enable = true;
   #services.xserver.desktopManager.plasma6.enable = true;
 
