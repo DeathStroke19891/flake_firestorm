@@ -220,10 +220,17 @@
     package = pkgs.stable.pipewire;
     enable = true;
     alsa.enable = true;
+    jack.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
+  # services.jack = {
+  #   jackd.enable = true;
+  #   alsa.enable = false;
+  #   loopback = {
+  #     enable = true;
+  #   }
+  # }
   #services.xserver.enable = true;
   #services.xserver.desktopManager.plasma6.enable = true;
 
@@ -266,7 +273,7 @@
     parzival = {
       isNormalUser = true;
       description = "Sridhar D Kedlaya";
-      extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirtd"];
+      extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirtd" "jackaudio"];
       packages = with pkgs; [];
       shell = pkgs.zsh;
     };
