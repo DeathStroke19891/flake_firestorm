@@ -247,6 +247,7 @@
 
     vscode
     amfora
+    wireplumber
 
     catppuccin-qt5ct
     cinnamon.nemo-with-extensions
