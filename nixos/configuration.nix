@@ -250,6 +250,10 @@
     enable = true;
   };
 
+  services.kubo = {
+    enable = true;
+  };
+
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
   # stylix.image = /home/parzival/pictures/wallpapers/hacking.jpg;
 
@@ -265,7 +269,7 @@
     parzival = {
       isNormalUser = true;
       description = "Sridhar D Kedlaya";
-      extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirtd" "jackaudio"];
+      extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirtd" "jackaudio" config.services.kubo.group];
       packages = with pkgs; [];
       shell = pkgs.zsh;
     };

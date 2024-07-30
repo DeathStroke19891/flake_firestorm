@@ -245,7 +245,6 @@
     tig
     act
 
-    kubo
     vscode
     amfora
     wireplumber
