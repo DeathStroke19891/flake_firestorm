@@ -244,6 +244,7 @@
     clang-tools
     tig
     act
+    speedtest-cli
 
     vscode
     amfora
