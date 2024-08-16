@@ -137,18 +137,19 @@
     };
   };
 
-  catppuccin.flavor = "mocha";
+  # catppuccin.flavor = "mocha";
 
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      accent = "lavender";
-      size = "standard";
-    };
 
-    cursorTheme.package = pkgs.bibata-cursors;
-    cursorTheme.name = "Bibata-Modern-Classic";
+    # catppuccin = {
+    #   enable = true;
+    #   accent = "lavender";
+    #   size = "standard";
+    # };
+
+    # cursorTheme.package = pkgs.bibata-cursors;
+    # cursorTheme.name = "Bibata-Modern-Classic";
 
     iconTheme.package = pkgs.candy-icons;
     iconTheme.name = "candy-icons";
@@ -227,7 +228,7 @@
     gimp
     planify
     bookworm
-    #mcomix
+    # mcomix
 
     jq
     socat
@@ -294,9 +295,10 @@
       lg2 = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'";
       lg = "lg2";
     };
-    #delta = {
-    # enable = true;
-    #};
+    # delta = {
+    #   enable = true;
+    #   package =
+    # };
     extraConfig = {
       delta = {
         navigate = true;
@@ -384,6 +386,8 @@
   programs.bat = {
     enable = true;
   };
+
+  programs.hyprcursor-phinger.enable = true;
 
   programs.fzf = {
     enable = true;

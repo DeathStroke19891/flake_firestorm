@@ -13,6 +13,7 @@
 
     nix-alien.url = "github:thiagokokada/nix-alien";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +33,7 @@
       home-manager,
       auto-cpufreq,
       nix-index-database,
+      hyprcursor-phinger,
       catppuccin,
       ...
   } @ inputs: let
@@ -85,7 +87,7 @@
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
           nix-index-database.hmModules.nix-index
-          catppuccin.homeManagerModules.catppuccin
+          hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
         ];
       };
     };
