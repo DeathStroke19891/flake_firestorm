@@ -149,7 +149,7 @@
     # };
 
     cursorTheme.package = pkgs.phinger-cursors;
-    cursorTheme.name = "Phinger Cursors (dark left handed)";
+    cursorTheme.name = "phinger-cursors-dark-left";
 
     iconTheme.package = pkgs.candy-icons;
     iconTheme.name = "candy-icons";
