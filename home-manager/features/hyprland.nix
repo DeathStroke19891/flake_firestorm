@@ -190,7 +190,7 @@ in {
 
         "$mainMod, M, fullscreen, 1"
         "$mainMod_SHIFT, M, fullscreen"
-        "$mainMod_SHIFT_CTRL, M, fakefullscreen"
+        "$mainMod_SHIFT_CTRL, M, fullscreenstate, 0 3"
 
         "$mainMod_CTRL, H, resizeactive, -20 0"
         "$mainMod_CTRL, L, resizeactive, 20 0"

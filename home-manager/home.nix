@@ -227,7 +227,7 @@
     gimp
     planify
     bookworm
-    mcomix
+    #mcomix
 
     jq
     socat
@@ -251,9 +251,9 @@
     wireplumber
 
     catppuccin-qt5ct
-    cinnamon.nemo-with-extensions
+    nemo-with-extensions
     yazi
-    ueberzugpp
+    #ueberzugpp
 
     rnote
 
@@ -294,9 +294,9 @@
       lg2 = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'";
       lg = "lg2";
     };
-    delta = {
-      enable = true;
-    };
+    #delta = {
+    # enable = true;
+    #};
     extraConfig = {
       delta = {
         navigate = true;
