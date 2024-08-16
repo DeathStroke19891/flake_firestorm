@@ -28,8 +28,10 @@ in {
 
       env = [
         "MOZ_ENABLE_WAYLAND = 1"
-        # "HYPRCURSOR_THEME, phinger-cursors-dark-hyprcursor"
-        # "HYPRCURSOR_SIZE, 24"
+        "HYPRCURSOR_THEME, phinger-cursors-dark"
+        "HYPRCURSOR_SIZE, 24"
+        "XCURSOR_THEME, \"Phinger Cursors (dark left handed)\""
+        "XCURSOR_SIZE, 24"
       ];
 
       exec-once = [
@@ -62,6 +64,14 @@ in {
         };
 
         sensitivity = 0;
+      };
+
+      cursor = {
+        inactive_timeout = 0; # 0 = forever
+        no_warps = true;
+        enable_hyprcursor = true;
+        hide_on_key_press = false;
+        hide_on_touch = false;
       };
 
       general = with config.colorScheme.palette; {

@@ -148,8 +148,8 @@
     #   size = "standard";
     # };
 
-    # cursorTheme.package = pkgs.bibata-cursors;
-    # cursorTheme.name = "Bibata-Modern-Classic";
+    cursorTheme.package = pkgs.phinger-cursors;
+    cursorTheme.name = "Phinger Cursors (dark left handed)";
 
     iconTheme.package = pkgs.candy-icons;
     iconTheme.name = "candy-icons";
