@@ -17,7 +17,6 @@
 
     ${pkgs.hypridle}/bin/hypridle &
     ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE
-    ${pkgs.hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 24
   '';
 in {
   wayland.windowManager.hyprland = {
