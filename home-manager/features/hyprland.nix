@@ -29,8 +29,8 @@ in {
 
       env = [
         "MOZ_ENABLE_WAYLAND = 1"
-        # "HYPRCURSOR_THEME, hyprcursor_Dracula"
-        # "HYPRCURSOR_SIZE, 24"
+        "HYPRCURSOR_THEME, hyprcursor-phinger"
+        "HYPRCURSOR_SIZE, 24"
       ];
 
       exec-once = [
