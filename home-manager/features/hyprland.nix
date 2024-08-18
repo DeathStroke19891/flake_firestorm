@@ -29,9 +29,9 @@ in {
       env = [
         "MOZ_ENABLE_WAYLAND = 1"
         "HYPRCURSOR_THEME, phinger-cursors-dark"
-        "HYPRCURSOR_SIZE, 32"
+        "HYPRCURSOR_SIZE, 24"
         "XCURSOR_THEME, phinger-cursors-dark"
-        "XCURSOR_SIZE, 32"
+        "XCURSOR_SIZE, 24"
       ];
 
       exec-once = [
