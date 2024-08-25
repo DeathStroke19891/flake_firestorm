@@ -172,7 +172,8 @@
     alejandra
 
     floorp
-    firefox-devedition
+    firefox
+    ladybird
     thunderbird
     pika-backup
 
