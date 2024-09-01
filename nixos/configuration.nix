@@ -136,6 +136,10 @@
     enable = true;
   };
 
+  programs.adb = {
+    enable = true;
+  };
+
   programs.auto-cpufreq.enable = true;
 
   programs.auto-cpufreq.settings = {
@@ -269,7 +273,7 @@
     parzival = {
       isNormalUser = true;
       description = "Sridhar D Kedlaya";
-      extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirtd" "jackaudio" config.services.kubo.group];
+      extraGroups = ["networkmanager" "wheel" "video" "audio" "input" "uinput" "power" "docker" "libvirtd" "jackaudio" config.services.kubo.group "kvm" "adbusers"];
       packages = with pkgs; [];
       shell = pkgs.zsh;
     };
