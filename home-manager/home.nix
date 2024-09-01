@@ -235,6 +235,11 @@
     socat
     hck
 
+    android-studio
+    android-studio-tools
+    jdk22
+    chromium
+
     emacs
     neovim
     obsidian
