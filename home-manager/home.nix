@@ -237,8 +237,9 @@
 
     android-studio
     android-studio-tools
-    jdk22
+    jdk
     chromium
+    flutter
 
     emacs
     neovim
