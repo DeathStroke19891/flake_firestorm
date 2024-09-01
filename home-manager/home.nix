@@ -362,6 +362,10 @@
 
     initExtra = ''
       PATH=$HOME/Android/Sdk/platform-tools/:$PATH
+      export PATH
+      export CHROME_EXECUTABLE={pkgs.chromium}/bin/chromium
+      export ANDROID_HOME=/home/parzival/Android/Sdk
+      export ANDROID_SDK_ROOT=/home/parzival/Android/Sdk
       HISTDUP=erase
       setopt HIST_FIND_NO_DUPS
       setopt HIST_SAVE_NO_DUPS
