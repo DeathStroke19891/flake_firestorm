@@ -76,10 +76,11 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Enable networking
-  networking.nameservers = ["9.9.9.9"];
   networking.networkmanager.enable = true;
   networking.enableIPv6 = true;
-
+  environment.etc = {
+    "resolv.conf".text = "nameserver 9.9.9.9\n";
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
