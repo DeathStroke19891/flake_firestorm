@@ -235,8 +235,8 @@
     socat
     hck
 
-    android-studio
-    android-studio-tools
+    # android-studio
+    # android-studio-tools
     jdk
     chromium
 
