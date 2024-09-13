@@ -132,7 +132,7 @@ in {
       "plugin:hyprfocus" = {
         enabled = "yes";
         animate_floating = "yes";
-        animate_workspacechange = "yes";
+        animate_workspacechange = "no";
         focus_animation = "shrink";
         bezier = [
           "bezIn, 0.5,0.0,1.0,0.5"
