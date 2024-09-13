@@ -133,7 +133,7 @@ in {
         enabled = "yes";
         animate_floating = "yes";
         animate_workspacechange = "yes";
-        focus_animation = "flash";
+        focus_animation = "shrink";
         bezier = [
           "bezIn, 0.5,0.0,1.0,0.5"
           "bezOut, 0.0,0.5,0.5,1.0"
@@ -143,14 +143,14 @@ in {
           "realsmooth, 0.28,0.29,.69,1.08"
         ];
         flash = {
-          flash_opacity = 0.95;
+          flash_opacity = 0.85;
           in_bezier = "realsmooth";
           in_speed = 0.5;
           out_bezier = "realsmooth";
           out_speed = 3;
         };
         shrink = {
-          shrink_percentage = 0.95;
+          shrink_percentage = 0.85;
           in_bezier = "realsmooth";
           in_speed = 1;
           out_bezier = "realsmooth";
