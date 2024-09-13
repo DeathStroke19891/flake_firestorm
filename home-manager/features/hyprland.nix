@@ -41,12 +41,10 @@ in {
         "[workspace special:spot silent] spotify"
         "[workspace special:term silent] alacritty"
         "[workspace special:mail silent] thunderbird"
-        "[workspace special:whats silent] firefox --new-window web.whatsapp.com"
+        "[workspace special:whats silent] firefox"
         "[workspace special:doom silent] emacs"
         "[workspace special:calc silent] alacritty -e qalc"
         "[workspace special:torrent silent] transmission-qt"
-        "[workspace special:morgen silent] morgen"
-        "[workspace special:plan silent] planify"
       ];
 
       exec = "hyprshade auto";
