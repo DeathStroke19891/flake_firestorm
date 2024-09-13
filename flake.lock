@@ -310,6 +310,27 @@
         "type": "github"
       }
     },
+    "hyprfocus": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nix-filter": "nix-filter"
+      },
+      "locked": {
+        "lastModified": 1717066948,
+        "narHash": "sha256-R1ZgNhQkoS6ZHRRKB+j5vYgRANfYO//sHbrD7moUTx0=",
+        "owner": "pyt0xic",
+        "repo": "hyprfocus",
+        "rev": "aa7262d3a4564062f97b9cfdad47fd914cfb80f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pyt0xic",
+        "repo": "hyprfocus",
+        "type": "github"
+      }
+    },
     "hyprland": {
       "inputs": {
         "aquamarine": "aquamarine",
@@ -586,7 +607,7 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
-        "nix-filter": "nix-filter",
+        "nix-filter": "nix-filter_2",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3"
       },
@@ -624,6 +645,21 @@
       }
     },
     "nix-filter": {
+      "locked": {
+        "lastModified": 1694857738,
+        "narHash": "sha256-bxxNyLHjhu0N8T3REINXQ2ZkJco0ABFPn6PIe2QUfqo=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "41fd48e00c22b4ced525af521ead8792402de0ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "type": "github"
+      }
+    },
+    "nix-filter_2": {
       "locked": {
         "lastModified": 1710156097,
         "narHash": "sha256-1Wvk8UP7PXdf8bCCaEoMnOT1qe5/Duqgj+rL8sRQsSM=",
@@ -868,11 +904,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1726191700,
-        "narHash": "sha256-/DGSoMwH/v7jWVRR/ZkpAMHphm5ZZ3KwBXf8hDDPh/s=",
+        "lastModified": 1726200288,
+        "narHash": "sha256-yoo1geP1T59yjT+RdEJda/FiX+3Qo+DNuGK4vuQmDXM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "fe45ae01f97f1cc20ac1a9b8033676909fdf5d6d",
+        "rev": "c779218c72479aa645ea043a53a2251b6ec0682f",
         "type": "github"
       },
       "original": {
@@ -887,6 +923,7 @@
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
         "hyprcursor-phinger": "hyprcursor-phinger",
+        "hyprfocus": "hyprfocus",
         "hyprland": "hyprland",
         "nix-alien": "nix-alien",
         "nix-colors": "nix-colors",

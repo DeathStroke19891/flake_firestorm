@@ -13,6 +13,10 @@
 
     nix-alien.url = "github:thiagokokada/nix-alien";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprfocus = {
+      url = "github:pyt0xic/hyprfocus";
+      inputs.hyprland.follows = "hyprland";
+    };
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
