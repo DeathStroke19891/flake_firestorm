@@ -150,11 +150,11 @@ in {
           out_speed = 3;
         };
         shrink = {
-          shrink_percentage = 0.85;
+          shrink_percentage = 0.90;
           in_bezier = "realsmooth";
-          in_speed = 1;
+          in_speed = 3;
           out_bezier = "realsmooth";
-          out_speed = 2;
+          out_speed = 3;
         };
       };
 
