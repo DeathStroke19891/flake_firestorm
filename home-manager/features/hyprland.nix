@@ -152,9 +152,9 @@ in {
         shrink = {
           shrink_percentage = 0.90;
           in_bezier = "realsmooth";
-          in_speed = 3;
+          in_speed = 0.5;
           out_bezier = "realsmooth";
-          out_speed = 3;
+          out_speed = 0.5;
         };
       };
 
