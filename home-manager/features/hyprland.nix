@@ -133,7 +133,7 @@ in {
         enabled = "yes";
         animate_floating = "yes";
         animate_workspacechange = "yes";
-        focus_animation = "shrink";
+        focus_animation = "flash";
         bezier = [
           "bezIn, 0.5,0.0,1.0,0.5"
           "bezOut, 0.0,0.5,0.5,1.0"
