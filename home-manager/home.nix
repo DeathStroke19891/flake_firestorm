@@ -235,6 +235,8 @@
     socat
     hck
 
+    irssi
+
     # android-studio
     # android-studio-tools
     jdk
