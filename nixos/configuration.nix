@@ -231,6 +231,11 @@
   };
   #services.xserver.enable = true;
   # services.desktopManager.plasma6.enable = true;
+  #
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   services.displayManager.sddm = {
     enable = true;
