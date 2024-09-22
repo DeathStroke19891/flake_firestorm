@@ -236,6 +236,7 @@
     hck
 
     irssi
+    telegram-desktop
 
     # android-studio
     # android-studio-tools
