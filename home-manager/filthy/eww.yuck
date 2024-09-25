@@ -4,11 +4,11 @@
 
 (defpoll battery :interval "3m"
   :initial "{\"percentage\": \"null\", \"status\": \"null\"}"
-  `./scripts/battery.sh`)
+  `./scripts/battery`)
 
 (defpoll wifi :interval "15s"
   :initial "Not Connected"
-  `./scripts/wifi.sh`)
+  `./scripts/wifi`)
 
 (defpoll current-brightness :interval "1s"
   :initial 100
