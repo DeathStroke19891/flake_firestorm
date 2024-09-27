@@ -237,6 +237,7 @@
 
     irssi
     telegram-desktop
+    blender
 
     # android-studio
     # android-studio-tools
