@@ -121,6 +121,13 @@
     '';
   };
 
+  programs.neovim = {
+    enable = true;
+    extraLuaConfig = ''
+      vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
+    '';
+  };
+
   programs.eww = {
     enable = true;
     configDir = ./filthy;
@@ -245,7 +252,6 @@
     chromium
 
     emacs
-    neovim
     obsidian
     zed-editor
 
