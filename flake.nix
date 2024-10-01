@@ -11,6 +11,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nvchad4nix = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-alien.url = "github:thiagokokada/nix-alien";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprfocus = {
@@ -36,9 +41,6 @@
       nixpkgs,
       home-manager,
       auto-cpufreq,
-      nix-index-database,
-      hyprcursor-phinger,
-      catppuccin,
       ...
   } @ inputs: let
     inherit (self) outputs;
@@ -90,8 +92,6 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          nix-index-database.hmModules.nix-index
-          hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
         ];
       };
     };

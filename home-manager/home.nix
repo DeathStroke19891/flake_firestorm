@@ -16,6 +16,9 @@
     # inputs.nix-colors.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
     inputs.xremap-flake.homeManagerModules.default
+    inputs.nix-index-database.hmModules.nix-index
+    inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
+    inputs.nvchad4nix.homeManagerModule
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./features/mako.nix
