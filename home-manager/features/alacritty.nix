@@ -37,8 +37,8 @@
         opacity = 0.0;
 
         padding = {
-          x = 10;
-          y = 10;
+          x = 0;
+          y = 0;
         };
 
         blur = true;
