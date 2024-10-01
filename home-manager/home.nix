@@ -124,11 +124,16 @@
     '';
   };
 
-  programs.neovim = {
+  # programs.neovim = {
+  #   enable = true;
+  #   extraLuaConfig = ''
+  #     vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
+  #   '';
+  # };
+
+  programs.nvchad = {
     enable = true;
-    extraLuaConfig = ''
-      vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
-    '';
+    backup = false;
   };
 
   programs.eww = {
