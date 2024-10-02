@@ -204,6 +204,7 @@
                           callback = vim.lsp.buf.format({ async = false }),
                       })
                   end
+              end,
             }
 
             return opts
