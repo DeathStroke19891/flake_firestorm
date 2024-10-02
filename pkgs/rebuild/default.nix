@@ -2,7 +2,7 @@
 pkgs.writeShellScriptBin "rebuild" ''
   set -e
   pushd ~/flake_firestorm/nixos/
-  ${pkgs.emacs}/bin/emacsclient -c -a 'emacs' configuration.nix
+  ${pkgs.nvchad}/bin/nvim configuration.nix
   ${pkgs.alejandra}/bin/alejandra . &>/dev/null
   ${pkgs.git}/bin/git diff -U0 *.nix
   popd
