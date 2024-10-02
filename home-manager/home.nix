@@ -252,7 +252,6 @@
       (python3.withPackages (ps:
         with ps; [
           python-lsp-server
-          six
         ]))
     ];
 
