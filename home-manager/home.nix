@@ -144,7 +144,6 @@
         {
           'neovim/nvim-lspconfig',
           config = function()
-            require "plugins.configs.lspconfig"
             local on_attach = require("plugins.configs.lspconfig").on_attach
             local capabilities = require("plugins.configs.lspconfig").capabilities
 
