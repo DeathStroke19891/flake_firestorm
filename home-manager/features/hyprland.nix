@@ -46,7 +46,7 @@ in {
         "[workspace special:term silent] alacritty"
         "[workspace special:mail silent] thunderbird"
         "[workspace special:whats silent] firefox"
-        "[workspace special:doom silent] nvim"
+        "[workspace special:doom silent] alacritty -e nvim"
         "[workspace special:calc silent] alacritty -e qalc"
         "[workspace special:torrent silent] transmission-qt"
       ];
@@ -190,7 +190,7 @@ in {
         "$mainMod, E, exec, alacritty -e yazi"
         "$mainMod, F, exec, floorp"
         "$mainMod SHIFT, F, exec, floorp -P College"
-        "$mainMod, D, exec, nvim"
+        "$mainMod, D, exec, alacritty -e nvim"
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
         "$mainMod, R, exec, rofi -show drun"
         "$mainMod, S, exec, sioyek"
