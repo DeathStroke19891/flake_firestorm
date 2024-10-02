@@ -134,6 +134,15 @@
   programs.nvchad = {
     enable = true;
     backup = false;
+    extraPlugins = ''
+      return {
+        {
+          'xeluxee/competitest.nvim'
+          dependencies = 'MunifTanjim/nui.nvim',
+          config = function() require('competitest').setup() end,
+        },
+      };
+    '';
   };
 
   programs.eww = {
