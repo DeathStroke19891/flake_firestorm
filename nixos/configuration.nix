@@ -31,6 +31,10 @@
       outputs.overlays.stable-packages
 
       inputs.nix-alien.overlays.default
+
+      (final: prev: {
+        nvchad = inputs.nvchad4nix.packages."${pkgs.system}".nvchad;
+      })
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
