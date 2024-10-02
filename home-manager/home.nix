@@ -212,6 +212,35 @@
             return opts
           end,
         },
+        {
+          "mfussenegger/nvim-dap",
+          config = function()
+            local dap = require('dap')
+
+            dap.adapters.codelldb = {
+              type = 'server',
+              host = '127.0.0.1',
+              port = 13241
+              executable = {
+                command = '/absolute/path/to/codelldb/extension/adapter/codelldb',
+                args = {"--port", "''${port}"},
+              }
+            }
+
+            dap.configurations.cpp = {
+                {
+                  name = "Launch file",
+                  type = "codelldb",
+                  request = "launch",
+                  program = function()
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                  end,
+                  cwd = "''${workspaceFolder}",
+                  stopOnEntry = false,
+                },
+            }
+          end
+        },
       };
     '';
 
@@ -219,6 +248,7 @@
       nixd
       rust-analyzer
       clang-tools
+      vscode-extensions.vadimcn.vscode-lldb.adapter
       (python3.withPackages (ps:
         with ps; [
           python-lsp-server
