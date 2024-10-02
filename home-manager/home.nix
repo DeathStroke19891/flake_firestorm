@@ -175,6 +175,11 @@
 
             lspconfig.nixd.setup{}
 
+            lspconfig.clangd.setup{
+                filetypes = { "c", "cpp"},
+              }
+            }
+
           end,
         },
       };
@@ -183,6 +188,7 @@
     extraPackages = with pkgs; [
       nixd
       rust-analyzer
+      clang-tools
       (python3.withPackages (ps:
         with ps; [
           python-lsp-server
@@ -323,8 +329,6 @@
 
     enchant
     nodejs_22
-
-    clang-tools
 
     tig
     act
