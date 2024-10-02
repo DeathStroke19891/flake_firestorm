@@ -143,6 +143,9 @@
         },
       };
     '';
+    extraConfig = ''
+      vim.opt.colorcolumn = "80"
+    '';
   };
 
   programs.eww = {
