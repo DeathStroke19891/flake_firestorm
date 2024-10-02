@@ -141,8 +141,61 @@
           dependencies = 'MunifTanjim/nui.nvim',
           config = function() require('competitest').setup() end,
         },
+        {
+          'neovim/nvim-lspconfig',
+          config = function()
+            require "plugins.configs.lspconfig"
+            local on_attach = require("plugins.configs.lspconfig").on_attach
+            local capabilities = require("plugins.configs.lspconfig").capabilities
+
+            local lspconfig = require "lspconfig"
+
+            lspconfig.rust_analyzer.setup{
+              on_attach = on_attach,
+              capabilities = capabilities,
+              filetypes = {"rust"},
+              root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+              settings = {
+                ['rust_analyzer'] = {
+                  diagnostics = {
+                    enable = false;
+                  }
+                }
+              }
+            }
+
+            lspconfig.pylsp.setup{
+              on_attach = on_attach,
+              capabilities = capabilities,
+              filetypes = {"python"},
+              settings = {
+                pylsp = {
+                  plugins = {
+                    pycodestyle = {
+                      ignore = {'W391'},
+                      maxLineLength = 80
+                    }
+                  }
+                }
+              }
+            }
+
+            lspconfig.nixd.setup{}
+
+          end,
+        },
       };
     '';
+
+    extraPackages = with pkgs; [
+      nixd
+      rust-analyzer
+      (python3.withPackages (ps:
+        with ps; [
+          python-lsp-server
+        ]))
+    ];
+
     extraConfig = ''
       vim.opt.colorcolumn = "80"
     '';
@@ -277,8 +330,9 @@
 
     enchant
     nodejs_22
-    pyright
+
     clang-tools
+
     tig
     act
     speedtest-cli
