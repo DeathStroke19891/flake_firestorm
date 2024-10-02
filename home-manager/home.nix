@@ -220,7 +220,7 @@
             dap.adapters.codelldb = {
               type = 'server',
               host = '127.0.0.1',
-              port = 13241
+              port = 13241,
               executable = {
                 command = '/absolute/path/to/codelldb/extension/adapter/codelldb',
                 args = {"--port", "''${port}"},
