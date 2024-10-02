@@ -2,7 +2,7 @@
 pkgs.writeShellScriptBin "home-rebuild" ''
   set -e
   pushd ~/flake_firestorm/home-manager/
-  ${pkgs.emacs}/bin/emacsclient -c -a 'emacs' home.nix
+  ${pkgs.nvchad}/bin/nvim home.nix
   ${pkgs.alejandra}/bin/alejandra . &>/dev/null
   ${pkgs.git}/bin/git diff -U0 *.nix
   popd
