@@ -201,7 +201,10 @@
                       vim.api.nvim_create_autocmd("BufWritePre", {
                           group = augroup,
                           buffer = bufnr,
-                          callback = vim.lsp.buf.format({ async = false }),
+                          callback = function()
+                            vim.lsp.buf.format({ async = false })
+                            vim.lsp.buf.formatting_sync()
+                          end
                       })
                   end
               end,
