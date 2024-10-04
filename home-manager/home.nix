@@ -419,6 +419,7 @@
             alpha.setup(dashboard.opts)
 
             vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
+            require'alpha'.setup(require'alpha.themes.startify'.config)
           end
         },
       }
