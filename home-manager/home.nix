@@ -357,14 +357,6 @@
               button(leader .. '   q', '  Quit' , leader, '<cmd>qa<CR>')
             }
 
-            dashboard.section.buttons.val = {
-                dashboard.button("<Leader>ff", "  File Explorer"),
-                dashboard.button("<Leader>fo", "  Find File"),
-                dashboard.button("<Leader>fw", "  Find Word"),
-                dashboard.button("<Leader>ps", "  Update plugins"),
-                dashboard.button("q", "  Quit", ":qa<cr>")
-            }
-
             dashboard.section.footer.val = footer()
             dashboard.section.footer.opts.hl = "Constant"
 
