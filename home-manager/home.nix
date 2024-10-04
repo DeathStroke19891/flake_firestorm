@@ -347,14 +347,14 @@
             dashboard.section.header.opts.hl = pick_color()
 
             dashboard.section.buttons.val= {
-              button('e', 'ﱐ  New file', leader, '<cmd>ene<CR>'),
-              button('s', '  Sync plugins' , leader, '<cmd>Lazy Sync<CR>'),
-              button('c', '  Configurations', leader, '<cmd>e ~/flake_firestorm/home-manager/features/nvim.nix<CR>'),
-              button(leader .. ' f f', '  Find files', leader, '<cmd>Telescope find_files<CR>'),
-              button(leader .. ' fof', '  Find old files', leader, '<cmd>Telescope oldfiles<CR>'),
-              button(leader .. ' f ;', 'ﭨ  Live grep', leader, '<cmd>Telescope live_grep<CR>'),
-              button(leader .. ' f g', '  Git status', leader, '<cmd>Telescope git_status<CR>'),
-              button(leader .. '   q', '  Quit' , leader, '<cmd>qa<CR>')
+              dashboard.button('e', 'ﱐ  New file', leader, '<cmd>ene<CR>'),
+              dashboard.button('s', '  Sync plugins' , leader, '<cmd>Lazy Sync<CR>'),
+              dashboard.button('c', '  Configurations', leader, '<cmd>e ~/flake_firestorm/home-manager/features/nvim.nix<CR>'),
+              dashboard.button(leader .. ' f f', '  Find files', leader, '<cmd>Telescope find_files<CR>'),
+              dashboard.button(leader .. ' fof', '  Find old files', leader, '<cmd>Telescope oldfiles<CR>'),
+              dashboard.button(leader .. ' f ;', 'ﭨ  Live grep', leader, '<cmd>Telescope live_grep<CR>'),
+              dashboard.button(leader .. ' f g', '  Git status', leader, '<cmd>Telescope git_status<CR>'),
+              dashboard.button(leader .. '   q', '  Quit' , leader, '<cmd>qa<CR>')
             }
 
             dashboard.section.footer.val = footer()
