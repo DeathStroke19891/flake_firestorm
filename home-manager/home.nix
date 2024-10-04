@@ -146,8 +146,10 @@
           config = function()
 
             local lspconfig = require "lspconfig"
+            local capabilities = require('cmp_nvim_lsp').default_capabilities
 
             lspconfig.rust_analyzer.setup{
+              capabilities = capabilities,
               filetypes = {"rust"},
               root_dir = lspconfig.util.root_pattern("Cargo.toml"),
               settings = {
@@ -160,6 +162,7 @@
             }
 
             lspconfig.pylsp.setup{
+              capabilities = capabilities,
               filetypes = {"python"},
               settings = {
                 pylsp = {
@@ -173,16 +176,19 @@
               }
             }
 
-            lspconfig.nixd.setup{}
+            lspconfig.nixd.setup{
+              capabilities = capabilities,
+            }
 
             lspconfig.clangd.setup{
-                filetypes = { "c", "cpp"},
+              capabilities = capabilities,
+              filetypes = { "c", "cpp"},
             }
 
           end,
         },
         {
-          "nvimtools/none-ls.nvim",
+          'nvimtools/none-ls.nvim',
           event = "VeryLazy",
           opts = function()
             local null_ls = require("null-ls")
@@ -213,7 +219,7 @@
           end,
         },
         {
-          "mfussenegger/nvim-dap",
+          'mfussenegger/nvim-dap',
           config = function()
             local dap = require('dap')
 
@@ -240,6 +246,44 @@
                 },
             }
           end
+        },
+        {
+          'hrsh7th/nvim-cmp',
+          config = function()
+            local cmp = require'cmp'
+
+            cmp.setup({
+              snippet = {
+                expand = function(args)
+                  require('luasnip').lsp_expand(args.body)
+                end,
+              },
+              window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+              },
+              mapping = cmp.mapping.preset.insert({
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-e>'] = cmp.mapping.abort(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+              }),
+              sources = cmp.config.sources({
+                -- { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+              }, {
+                { name = 'buffer' },
+              })
+            })
+          end
+        },
+        {
+          'L3MON4D3/LuaSnip',
+          dependencies = 'saadparwaiz1/cmp_luasnip',
+        },
+        {
+          'hrsh7th/cmp-nvim-lsp'
         },
       };
     '';
