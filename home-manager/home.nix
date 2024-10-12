@@ -498,7 +498,7 @@
     socat
     hck
 
-    irssi
+    halloy
     telegram-desktop
     blender
 
