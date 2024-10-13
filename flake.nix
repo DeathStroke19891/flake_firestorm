@@ -17,6 +17,12 @@
     };
 
     nix-alien.url = "github:thiagokokada/nix-alien";
+
+    nix-snapd = {
+      url = "github:nix-community/nix-snapd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprfocus = {
       url = "github:pyt0xic/hyprfocus";
@@ -41,6 +47,7 @@
       nixpkgs,
       home-manager,
       auto-cpufreq,
+      nix-snapd,
       ...
   } @ inputs: let
     inherit (self) outputs;
@@ -76,9 +83,7 @@
       Firestorm = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          auto-cpufreq.nixosModules.default
           ./nixos/configuration.nix
-
         ];
       };
     };

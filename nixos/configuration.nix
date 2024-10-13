@@ -17,7 +17,8 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
-
+    inputs.auto-cpufreq.nixosModules.default
+    inputs.nix-snapd.nixosModules.default
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -159,6 +160,8 @@
       turbo = "never";
     };
   };
+
+  services.snap.enable = true;
 
   programs.hyprland = {
     enable = true;
