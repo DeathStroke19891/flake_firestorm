@@ -429,6 +429,7 @@
 
   home.packages = with pkgs; [
     sioyek
+    foliate
 
     nur.repos.nltch.spotify-adblock
 
