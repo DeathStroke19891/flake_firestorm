@@ -516,7 +516,8 @@
 
     tig
     act
-    speedtest-cli
+    speedtest-rs
+    porsmo
 
     vscode
     amfora
