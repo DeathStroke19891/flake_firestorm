@@ -644,6 +644,10 @@
       zstyle ':completion:*' menu no
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa $realpath'
       zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'exa $realpath'
+
+
+      fpath=(${pkgs.trashy}/share/zsh/site-functions \
+             $fpath)
     '';
   };
 
