@@ -442,7 +442,6 @@
 
     floorp
     firefox
-    ladybird
     thunderbird
     pika-backup
 
