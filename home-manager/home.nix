@@ -365,6 +365,11 @@
             vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
           end
         },
+        {
+          "davidmh/mdx.nvim",
+          config = true,
+          dependencies = {"nvim-treesitter/nvim-treesitter"}
+        },
       }
     '';
 
