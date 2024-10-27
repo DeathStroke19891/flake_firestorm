@@ -368,7 +368,7 @@
         {
           "davidmh/mdx.nvim",
           config = true,
-          ft = "mdx"
+          ft = "mdx",
           dependencies = {"nvim-treesitter/nvim-treesitter"}
         },
       }
