@@ -16,7 +16,7 @@
         {
           "davidmh/mdx.nvim",
           config = true,
-          event = VeryLazy,
+          lazy = false,
           dependencies = {"nvim-treesitter/nvim-treesitter"}
         },
         {
