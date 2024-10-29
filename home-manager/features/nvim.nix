@@ -16,7 +16,7 @@
         {
           "davidmh/mdx.nvim",
           config = true,
-          lazy = false,
+          event = "BufEnter *.mdx",
           dependencies = {"nvim-treesitter/nvim-treesitter"}
         },
         {
