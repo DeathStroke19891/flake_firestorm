@@ -274,6 +274,8 @@
     catppuccin-qt5ct
     nemo-with-extensions
     yazi
+
+    mgba
     #ueberzugpp
 
     rnote
