@@ -186,14 +186,12 @@
     floorp
     firefox
     thunderbird
-    pika-backup
 
     grimblast
     screenshot
     # (import ./derivations/screenshot.nix {inherit pkgs;})
 
     mako
-    kooha
     rofi-wayland
     wl-clipboard
     swww
@@ -207,7 +205,6 @@
     udiskie
     bottom
     cava
-    hyprpicker
     mpv
     wl-mirror
 
@@ -221,7 +218,6 @@
     sl
     zsh-fzf-tab
     copyq
-    pstree
 
     pass-wayland
     gnupg
@@ -229,17 +225,14 @@
     pass-show
     # (import ./derivations/pass.nix {inherit pkgs;})
 
-    at
-    alarm
+    # at
+    # alarm
     # (import ./derivations/alarm.nix {inherit pkgs;})
 
     calibre
     libreoffice-fresh
     libqalculate
     transmission_4-qt
-    gimp
-    planify
-    bookworm
     # mcomix
 
     jq
@@ -248,7 +241,7 @@
 
     halloy
     telegram-desktop
-    blender
+    # blender
 
     # android-studio
     # android-studio-tools
@@ -257,13 +250,10 @@
 
     emacs
     obsidian
-    zed-editor
 
     enchant
     nodejs_22
 
-    tig
-    act
     speedtest-rs
     porsmo
 
