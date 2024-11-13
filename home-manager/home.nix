@@ -245,8 +245,8 @@
 
     # android-studio
     # android-studio-tools
-    jdk
-    chromium
+    # jdk
+    # chromium
 
     emacs
     obsidian
