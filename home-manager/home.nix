@@ -230,7 +230,7 @@
     # (import ./derivations/alarm.nix {inherit pkgs;})
 
     calibre
-    libreoffice-fresh
+    # libreoffice-fresh
     libqalculate
     transmission_4-qt
     # mcomix
@@ -257,7 +257,7 @@
     speedtest-rs
     porsmo
 
-    vscode
+    # vscode
     amfora
     wireplumber
 
