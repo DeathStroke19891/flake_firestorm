@@ -189,7 +189,6 @@
 
     grimblast
     screenshot
-    # (import ./derivations/screenshot.nix {inherit pkgs;})
 
     mako
     rofi-wayland
@@ -204,13 +203,12 @@
     hyprlock
     udiskie
     bottom
-    cava
+    # cava
     mpv
     wl-mirror
 
     bc
     battery-health
-    # (import ./derivations/battery-health.nix {inherit pkgs;})
 
     ripgrep
     fd
@@ -225,15 +223,14 @@
     pass-show
     # (import ./derivations/pass.nix {inherit pkgs;})
 
-    # at
+    at
     # alarm
-    # (import ./derivations/alarm.nix {inherit pkgs;})
 
-    calibre
-    # libreoffice-fresh
+    # calibre
+    libreoffice-fresh
     libqalculate
     transmission_4-qt
-    # mcomix
+    mcomix
 
     jq
     socat
@@ -241,7 +238,7 @@
 
     halloy
     telegram-desktop
-    # blender
+    blender
 
     # android-studio
     # android-studio-tools
@@ -257,7 +254,7 @@
     speedtest-rs
     porsmo
 
-    # vscode
+    vscode
     amfora
     wireplumber
 
@@ -266,7 +263,7 @@
     yazi
 
     mgba
-    #ueberzugpp
+    ueberzugpp
 
     rnote
 
