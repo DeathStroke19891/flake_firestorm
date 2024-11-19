@@ -159,7 +159,7 @@ in {
       };
 
       dwindle = {
-        no_gaps_when_only = false;
+        # no_gaps_when_only = false;
         pseudotile = true;
         preserve_split = true;
         force_split = 3;
@@ -168,7 +168,7 @@ in {
       master = {
         new_status = "master";
         new_on_top = true;
-        no_gaps_when_only = false;
+        # no_gaps_when_only = false;
         always_center_master = false;
         mfact = 0.50;
       };
