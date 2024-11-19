@@ -97,12 +97,12 @@ in {
           xray = false;
           ignore_opacity = true;
         };
-        drop_shadow = true;
-        shadow_ignore_window = true;
-        shadow_offset = "1 2";
-        shadow_range = 10;
-        shadow_render_power = 5;
-        "col.shadow" = "0x66000000";
+        # drop_shadow = true;
+        # shadow_ignore_window = true;
+        # shadow_offset = "1 2";
+        # shadow_range = 10;
+        # shadow_render_power = 5;
+        # "col.shadow" = "0x66000000";
         blurls = [
           "gtk-layer-shell"
           "lockscreen"
