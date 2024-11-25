@@ -62,7 +62,7 @@ in {
         accel_profile = "adaptive";
 
         touchpad = {
-          natural_scroll = "yes";
+          natural_scroll = "no";
         };
 
         sensitivity = 0;
