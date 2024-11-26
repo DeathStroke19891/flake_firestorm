@@ -40,7 +40,6 @@ in {
 
       exec-once = [
         ''${startupScript}/bin/start''
-        "eww daemon"
         "eww open bar"
         "[workspace special:spot silent] spotify"
         "[workspace special:term silent] alacritty"
