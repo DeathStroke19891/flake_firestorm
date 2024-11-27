@@ -240,6 +240,8 @@
     telegram-desktop
     blender
 
+    neo4j
+
     # android-studio
     # android-studio-tools
     # jdk
