@@ -127,7 +127,6 @@
     qt6Packages.qt6ct
     nix-alien
     docker-compose
-    neo4j
   ];
 
   fonts.packages = with pkgs; [
@@ -138,7 +137,6 @@
     NIXOS_OZONE_WL = "1";
     HYPRCURSOR_THEME = "hyprcursor_Dracula";
     HYPRCURSOR_SIZE = "24";
-    NEO4J_CONF = "/var/lib/neo4j/conf/";
   };
 
   programs.nix-ld = {
@@ -264,6 +262,10 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
+  };
+
+  services.neo4j = {
+    enable = true;
   };
 
   services.atd = {
