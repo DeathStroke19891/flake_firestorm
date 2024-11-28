@@ -247,6 +247,8 @@
     # jdk
     # chromium
 
+    quantum-espresso
+
     emacs
     obsidian
 
