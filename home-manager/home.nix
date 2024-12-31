@@ -248,6 +248,7 @@
     # chromium
 
     quantum-espresso
+    mininet
 
     emacs
     obsidian
