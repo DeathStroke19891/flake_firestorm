@@ -23,9 +23,9 @@ in {
     enable = true;
     package = pkgs.hyprland;
 
-    plugins = [
-      inputs.hyprfocus.packages."${pkgs.system}".default
-    ];
+    # plugins = [
+    #   inputs.hyprfocus.packages."${pkgs.system}".default
+    # ];
 
     settings = {
       monitor = ",1920x1080@60, auto, 1";

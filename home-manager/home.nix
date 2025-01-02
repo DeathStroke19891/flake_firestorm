@@ -40,7 +40,7 @@
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      inputs.nur.overlay
+      inputs.nur.overlays.default
       # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
@@ -252,7 +252,7 @@
 
     emacs
     obsidian
-    logseq
+    # logseq
 
     enchant
     nodejs_22
@@ -279,7 +279,10 @@
     texliveFull
 
     noto-fonts-emoji
-    (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "Monaspace" "Mononoki"];})
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.monaspace
+    nerd-fonts.mononoki
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
