@@ -22,6 +22,7 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
+    systemd.enable = false;
 
     # plugins = [
     #   inputs.hyprfocus.packages."${pkgs.system}".default
