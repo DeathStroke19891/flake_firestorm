@@ -252,6 +252,7 @@
 
     emacs
     obsidian
+    logseq
 
     enchant
     nodejs_22
