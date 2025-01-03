@@ -183,6 +183,9 @@
 
     alejandra
 
+    taskwarrior3
+    taskwarrior-tui
+
     floorp
     firefox
     thunderbird
