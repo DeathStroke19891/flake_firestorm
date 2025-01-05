@@ -28,6 +28,14 @@
       url = "github:pyt0xic/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hypr-dynamic-cursors = {
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs.hyprland.follows = "hyprland"; 
+    };
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
@@ -44,9 +52,9 @@
 
   outputs = {
     self,
-      nixpkgs,
-      home-manager,
-      ...
+    nixpkgs,
+    home-manager,
+    ...
   } @ inputs: let
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.

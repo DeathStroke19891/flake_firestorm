@@ -24,9 +24,10 @@ in {
     package = pkgs.hyprland;
     systemd.enable = false;
 
-    # plugins = [
-    #   inputs.hyprfocus.packages."${pkgs.system}".default
-    # ];
+    plugins = [
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+    ];
 
     settings = {
       monitor = ",1920x1080@60, auto, 1";
@@ -158,6 +159,15 @@ in {
       #     out_speed = 2;
       #   };
       # };
+
+      # "plugin:hyprtrails" = {
+      #   color = "rgba(ffaa00ff)";
+      # };
+
+      "plugin:dynamic-cursors" = {
+        enabled = true;
+        # mode = "tilt";
+      };
 
       dwindle = {
         # no_gaps_when_only = false;
