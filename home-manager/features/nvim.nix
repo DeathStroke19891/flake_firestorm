@@ -243,6 +243,10 @@
             vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
           end
         },
+        {
+          "folke/todo-comments.nvim",
+          dependencies = { "nvim-lua/plenary.nvim" },
+        },
       }
     '';
 
