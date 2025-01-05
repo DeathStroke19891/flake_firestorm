@@ -46,8 +46,6 @@
     self,
       nixpkgs,
       home-manager,
-      auto-cpufreq,
-      nix-snapd,
       ...
   } @ inputs: let
     inherit (self) outputs;

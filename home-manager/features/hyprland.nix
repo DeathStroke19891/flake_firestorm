@@ -49,6 +49,7 @@ in {
         "[workspace special:doom silent] alacritty -e nvim"
         "[workspace special:calc silent] alacritty -e qalc"
         "[workspace special:torrent silent] transmission-qt"
+        "[workspace special:anki silent] anki"
       ];
 
       exec = "hyprshade auto";
@@ -225,8 +226,8 @@ in {
         "$mainMod_CTRL, C, togglespecialworkspace, calc"
         "$mainMod_CTRL, S, togglespecialworkspace, spot"
         "$mainMod_CTRL, O, togglespecialworkspace, torrent"
+        "$mainMod_CTRL, A, togglespecialworkspace, anki"
         "$mainMod_CTRL, R, togglespecialworkspace, random"
-        "$mainMod_CTRL, P, togglespecialworkspace, io.github.alainm23.planify"
 
         "$mainMod, M, fullscreen, 1"
         "$mainMod_SHIFT, M, fullscreen"
