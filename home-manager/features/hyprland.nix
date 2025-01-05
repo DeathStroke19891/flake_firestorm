@@ -26,6 +26,7 @@ in {
 
     plugins = [
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      # inputs.hiprfocus.packages.${pkgs.system}.hyprfocus
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
     ];
 
@@ -166,7 +167,11 @@ in {
 
       "plugin:dynamic-cursors" = {
         enabled = true;
-        # mode = "tilt";
+        mode = "tilt";
+        shake = {
+          enabled = true;
+          nearest = false;
+        };
       };
 
       dwindle = {
