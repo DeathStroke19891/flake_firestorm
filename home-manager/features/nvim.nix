@@ -269,7 +269,7 @@
                 autocmd FileType alpha setlocal nofoldenable
             ]]
 
-            vim.api.nvim_set_keymap('n', '<leader>h', ':Alpha<CR', { noremap = true, slient = true})
+            vim.api.nvim_set_keymap('n', '<leader>h', ':Alpha<CR', { noremap = true, silent = true})
           end
         },
         {
