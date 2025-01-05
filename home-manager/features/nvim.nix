@@ -179,66 +179,105 @@
         {
           'hrsh7th/cmp-nvim-lsp',
         },
+
         {
           "goolord/alpha-nvim",
           lazy = false;
           dependencies = {"kyazdani42/nvim-web-devicons"},
           config = function()
-            local alpha = require("alpha")
-            local dashboard = require("alpha.themes.dashboard")
-
             math.randomseed(os.time())
 
-            local function pick_color()
-                local colors = {"String", "Identifier", "Keyword", "Number"}
-                return colors[math.random(#colors)]
+            local alpha = require 'alpha'
+            local dashboard = require 'alpha.themes.dashboard'
+
+            -- Function to center quotes
+            local function center_quote(quote)
+              local max_width = 0
+              for _, str in ipairs(quote) do
+                max_width = math.max(max_width, #str)
+              end
+
+              local centered_strings = {}
+              for _, str in ipairs(quote) do
+                local leading_spaces = math.floor((max_width - #str) / 2)
+                local trailing_spaces = max_width - leading_spaces - #str
+                local centered_str = string.rep(' ', leading_spaces) .. str .. string.rep(' ', trailing_spaces)
+                table.insert(centered_strings, centered_str)
+              end
+
+              -- Insert blank strings at start of table yea ik its scuffed
+              table.insert(centered_strings, 1, ''')
+              table.insert(centered_strings, 1, ''')
+              return centered_strings
             end
 
-            local function footer()
-                -- local total_plugins = #vim.tbl_keys(packer_plugins)
-                local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
-                local version = vim.version()
-                local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
-
-                return datetime .. "   " .. nvim_version_info
-            end
-
-            local logo = {
-              "                                   ",
-              "                                   ",
-              "                                   ",
-              "   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ",
-              "    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ",
-              "          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ",
-              "           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ",
-              "          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ",
-              "   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ",
-              "  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ",
-              " ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ",
-              " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ",
-              "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
-              "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
-              "                                   ",
+            dashboard.section.header.val = {
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⠀⢀⠀⡙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠘⠂⡃⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡈⠓⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⡀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⢃⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⢀⡈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⡆⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢸⠆⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠋⢉⣡⣈⣠⠄⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣤⣤⡉⠀⠒⡂⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠐⢌⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢸⣮⠳⣄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠉⠳⠈⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠓⢬⡁⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠸⣶⣤⠈⠛⣿⣿⣿⣿⣿⣿⣿⠃⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⢻⡍⠁⠀⣿⣿⣿⣿⣿⣿⡇⡄⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⢸⣧⠩⡀⣿⣿⣿⣿⣿⣿⠰⡇⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⡀⣄⢻⣿⣿⣿⣿⣿⡀⢿⣆⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⢹⣧⠉⠀⣿⣿⣿⣿⣿⣷⡜⢿⣆⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠈⣿⠀⢁⢹⣿⣿⣿⣿⣿⣷⡌⠉⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢿⡇⢀⠘⣿⣿⣿⡟⢻⡿⠁⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠘⣿⠀⡀⣿⣿⣿⡇⠸⠇⣤⡇⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⢿⡇⠀⠸⣿⡿⢣⡆⠘⢹⠁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⢰⡧⠀⠀⡏⣰⡿⠆⠀⢸⢀⡏⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⣼⣿⣿⠈⠀⠁⠀⠀⠀⣽⠇⢠⡧⢀⣾⠃⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠄⣿⣿⠋⣴⠿⠀⠀⠀⠀⡟⣀⣾⡇⢿⣿⠐⡀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⢢⠀⣌⢻⣰⣿⠀⠀⡀⡀⣼⣿⢿⣿⣷⣈⢻⠀⣷⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠀⠘⠇⣼⣦⣿⢿⣤⣾⣧⣿⡛⠉⠀⠀⢤⣿⣦⢸⣿⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢀⣼⣿⠟⣡⡘⣿⣿⣿⣿⡟⠀⠀⢠⣼⣿⣿⠀⣿⡷⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⣱⣿⠟⣡⣾⢿⣿⣌⠻⣿⠟⠀⠀⠴⣦⣾⣿⣿⣶⠛⢤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⣿⢡⣾⠟⣡⣾⡿⢋⢸⣿⣿⡿⢋⣴⣄⣰⣿⣿⣿⡿⠿⠴⠿⣦⣌⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⢹⢸⣷⠞⠻⢟⣱⣾⣆⣉⣉⡁⠚⣿⣿⠟⢩⠼⠏⢁⠔⣠⣾⡟⣹⣆⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠉⠀⠘⢡⣶⣶⡿⠟⢋⠍⢻⣿⣠⢰⣟⣁⡠⠴⠶⠋⢉⣴⣿⢏⠀⣿⣿⡌⠛⢛⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠄⣀⡀⢀⣼⣿⠏⢀⣼⣿⢀⢈⣠⣾⣾⡟⠉⠀⠀⠀⠐⣿⡿⣡⡎⣼⣿⣿⣿⡊⢻⠿⣿⠈⢻⣿⣿⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⣿⣿⡿⠛⠡⠀⠐⢿⠛⡉⣽⣯⣥⣆⣾⠟⣣⣾⣿⣿⣿⣿⣧⠀⠀⢀⣴⡆⢻⠇⣿⠀⣿⠻⣿⣿⣿⣆⠐⢶⣶⣌⠋⢻⣿⣿⣿⣿",
+              "⣿⣿⣿⣿⠟⢋⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠨⣝⡛⠛⠋⣁⡀⢛⣿⣿⣿⠃⠈⠀⢛⣿⢸⣦⠉⠀⣉⣀⡀⠀⠙⠛⠃⠓⢘⣿⣿⡀⠿⣿⣿⣿",
+              "⣿⡿⠋⠄⠈⠀⠰⠤⣤⡀⠀⠙⢿⣿⣷⣶⣄⠀⠀⠑⠀⠈⠁⠀⢿⡿⠁⠀⠀⣁⣤⠉⠀⣤⣤⣿⣿⣿⠀⠀⢀⡀⠂⣠⣾⣿⣿⣿⣦⡙⢿⣿",
+              "⣿⠃⣠⠞⣥⠶⠶⠂⠀⠙⢦⡙⠆⣹⡿⠉⠹⠃⠀⠀⠠⣴⠂⠾⠀⠀⠁⠀⠀⠀⠀⣀⡀⠀⠀⠀⢀⣀⡀⠀⠀⠀⡘⠻⣿⡿⠟⠉⠛⠓⠘⣿",
+              "⡇⡈⢁⣈⣁⣀⣀⢀⣀⠠⣤⣤⡿⡟⣁⣁⢠⣶⢶⢮⣀⣁⣬⣭⢁⠀⣄⣀⣠⣤⡴⡏⢁⢀⠉⣉⣀⣀⠀⡖⢀⢠⢌⡁⣀⣠⠤⠥⠀⣈⢉⣻",
+              ''',
+              ''',
             }
 
-            dashboard.section.header.val = logo
-            dashboard.section.header.opts.hl = pick_color()
+            local quotes = {
+              {
+                'Dear, oh dear. What was it? The Hunt? The Blood? Or the horrible dream?',
+                'Oh, it doesn't matter... It always comes down to the Hunter's helper to clean up after these sort of messes.',
+                'Tonight, Gehrman joins the hunt...',
+              },
+            }
 
-            dashboard.section.buttons.val= {
-              dashboard.button('e', 'ﱐ  New file', leader, '<cmd>ene<CR>'),
-              dashboard.button('s', '  Sync plugins' , leader, '<cmd>Lazy Sync<CR>'),
+            dashboard.section.footer.val = center_quote(quotes[math.random(#quotes)])
+
+            dashboard.section.buttons.val = {
+              dashboard.button('e', '  > New File', ':Telescope find_files<CR>'),
               dashboard.button('c', '  Configurations', leader, '<cmd>e ~/flake_firestorm/home-manager/features/nvim.nix<CR>'),
-              dashboard.button('<leader>'.. ' f f', '  Find files', leader, '<cmd>Telescope find_files<CR>'),
-              dashboard.button('<leader>' .. ' fof', '  Find old files', leader, '<cmd>Telescope oldfiles<CR>'),
-              dashboard.button('<leader>' .. ' f ;', 'ﭨ  Live grep', leader, '<cmd>Telescope live_grep<CR>'),
-              dashboard.button('<leader>' .. ' f g', '  Git status', leader, '<cmd>Telescope git_status<CR>'),
-              dashboard.button('<leader>' .. '   q', '  Quit' , leader, '<cmd>qa<CR>')
+              dashboard.button('q', '󰅚  > Quit NVIM', ':qa<CR>'),
+              dashboard.button('f f', '  > Find file', ':Telescope find_files<CR>'),
             }
-
-            dashboard.section.footer.val = footer()
-            dashboard.section.footer.opts.hl = "Constant"
 
             alpha.setup(dashboard.opts)
+
+            vim.cmd [[
+                autocmd FileType alpha setlocal nofoldenable
+            ]]
 
             vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
           end
