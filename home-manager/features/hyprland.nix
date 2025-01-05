@@ -180,7 +180,7 @@ in {
         new_status = "master";
         new_on_top = true;
         # no_gaps_when_only = false;
-        always_center_master = false;
+        slave_count_for_center_master = 2;
         mfact = 0.50;
       };
 
