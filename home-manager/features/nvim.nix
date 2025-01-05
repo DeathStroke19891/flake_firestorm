@@ -247,6 +247,15 @@
           "folke/todo-comments.nvim",
           dependencies = { "nvim-lua/plenary.nvim" },
         },
+        {
+          "rebelot/kanagawa.nvim",
+        },
+        {
+          url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+          config = function()
+            require("lsp_lines").setup()
+          end,
+        }
       }
     '';
 
