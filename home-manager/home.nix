@@ -19,6 +19,7 @@
     inputs.nix-index-database.hmModules.nix-index
     inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
     inputs.nvchad4nix.homeManagerModule
+    inputs.hyprland.homeManagerModules.default
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./features/mako.nix
