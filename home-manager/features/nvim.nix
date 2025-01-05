@@ -251,6 +251,9 @@
           "rebelot/kanagawa.nvim",
         },
         {
+          "artanikin/vim-synthwave84"
+        },
+        {
           url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
           event = "VeryLazy",
           config = function()
