@@ -259,6 +259,9 @@
 
     extraConfig = ''
       vim.opt.colorcolumn = "80"
+      vim.api.nvim_set_option("clipboard","unnamedplus")
+      local options = { noremap = true }
+      vim.keymap.set("i", "kj", "<Esc>", options)
     '';
   };
 }
