@@ -272,6 +272,8 @@
     nemo-with-extensions
     yazi
 
+    klavaro
+
     mgba
     ueberzugpp
 
