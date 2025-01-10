@@ -57,8 +57,8 @@ in {
       exec = "hyprshade auto";
 
       input = {
-        kb_layout = "us, us";
-        kb_variant = "dvp,";
+        kb_layout = "us";
+        # kb_variant = "dvp,";
         kb_options = "grp:rctrl_rshift_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
