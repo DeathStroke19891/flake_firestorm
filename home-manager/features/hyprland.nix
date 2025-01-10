@@ -68,7 +68,7 @@ in {
           natural_scroll = "yes";
         };
 
-        sensitivity = 5;
+        sensitivity = 3;
       };
 
       cursor = {
