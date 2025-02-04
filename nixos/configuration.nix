@@ -225,7 +225,6 @@
     variant = "dvp";
   };
 
-  console.keyMap = "dvorak-programmer";
   hardware.uinput.enable = true;
 
   # sound.enable = true;
