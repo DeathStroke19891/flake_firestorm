@@ -230,6 +230,9 @@
     at
     # alarm
 
+    # airshipper
+    # veloren
+
     # calibre
     libreoffice-fresh
     libqalculate
