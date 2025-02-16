@@ -222,7 +222,6 @@
 
   services.xserver.xkb = {
     layout = "us";
-    variant = "dvp";
   };
 
   hardware.uinput.enable = true;
@@ -262,10 +261,6 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-  };
-
-  services.neo4j = {
-    enable = true;
   };
 
   services.atd = {
