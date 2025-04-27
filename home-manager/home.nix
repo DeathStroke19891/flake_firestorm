@@ -369,6 +369,9 @@
         renames = "copies";
         interHunkContext = 10;
       };
+      commit = {
+        verbose = true;
+      };
     };
   };
 
@@ -388,6 +391,19 @@
       ls = "eza";
       rm = "trash -c always put";
       cat = "bat";
+
+      gs = "git status --short";
+      gd = "git diff --output-indicator-new=' ' --output-indicator-old=' '";
+      gds = "git diff --staged";
+      ga = "git add";
+      gap = "git add --patch";
+      gc = "git commit";
+      gp = "git push";
+      gu = "git pull";
+      gl = "git log";
+      gb = "git branch";
+      gi = "git init";
+      gcl = "git clone";
     };
 
     oh-my-zsh = {
