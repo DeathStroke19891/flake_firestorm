@@ -320,11 +320,6 @@
     enable = true;
     userName = "Sridhar D Kedlaya";
     userEmail = "sridhardked@gmail.com";
-    aliases = {
-      lg1 = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all";
-      lg2 = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'";
-      lg = "lg2";
-    };
     delta = {
       enable = true;
       package = pkgs.delta;
@@ -375,6 +370,29 @@
       commit = {
         verbose = true;
       };
+      push = {
+        autoSetupRemote = true;
+        default = "current";
+        followTags = true;
+      };
+      pull = {
+        default = true;
+        rebase = true;
+      };
+      rebase = {
+        autoStash = true;
+        missingCommitsCheck = "warn";
+      };
+      log = {
+        abbrevCommit = true;
+        graphColors = "blue,tellow,cyan,magenta,green,red";
+      };
+      color."decorate" = {
+        HEAD = "red";
+        branch = "blue";
+        tag = "yellow";
+        remoteBranch = "magenta";
+      };
     };
   };
 
@@ -403,7 +421,8 @@
       gc = "git commit";
       gp = "git push";
       gu = "git pull";
-      gl = "git log";
+      gl = "git log --all --graph --pretty=\
+      format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'";
       gb = "git branch";
       gi = "git init";
       gcl = "git clone";
