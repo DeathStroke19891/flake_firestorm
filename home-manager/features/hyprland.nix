@@ -46,7 +46,6 @@ in {
         "eww open bar"
         "[workspace special:spot silent] spotify"
         "[workspace special:term silent] alacritty"
-        "[workspace special:mail silent] thunderbird"
         "[workspace special:whats silent] firefox"
         "[workspace special:doom silent] alacritty -e nvim"
         "[workspace special:calc silent] alacritty -e qalc"
@@ -236,7 +235,6 @@ in {
 
         "$mainMod_CTRL, Return, togglespecialworkspace, term"
         "$mainMod_CTRL, D, togglespecialworkspace, doom"
-        "$mainMod_CTRL, T, togglespecialworkspace, mail"
         "$mainMod_CTRL, W, togglespecialworkspace, whats"
         "$mainMod_CTRL, C, togglespecialworkspace, calc"
         "$mainMod_CTRL, S, togglespecialworkspace, spot"

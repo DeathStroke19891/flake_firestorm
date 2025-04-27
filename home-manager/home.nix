@@ -189,7 +189,6 @@
 
     floorp
     firefox
-    thunderbird
 
     grimblast
     screenshot
