@@ -334,6 +334,24 @@
       };
     };
     extraConfig = {
+      core = {
+        compression = 9;
+        whitespace = "error";
+        preloadindex = true;
+      };
+      advice = {
+        addEmptyPathspec = false;
+        pushNonFastForward = false;
+        statusHints = false;
+      };
+      init = {
+        defaultBranch = "dev";
+      };
+      status = {
+        branch = true;
+        showStash = true;
+        showUntrackedFiles = "all";
+      };
       merge = {
         conflictstyle = "zdiff3";
       };
