@@ -364,6 +364,9 @@
       merge = {
         conflictstyle = "zdiff3";
       };
+      interactive = {
+        singlekey = true;
+      };
       diff = {
         context = 3;
         renames = "copies";
