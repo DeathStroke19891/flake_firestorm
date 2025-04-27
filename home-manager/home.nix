@@ -393,6 +393,23 @@
         tag = "yellow";
         remoteBranch = "magenta";
       };
+      color."branch" = {
+        current = "magenta";
+        local = "default";
+        remote = "yellow";
+        upstream = "green";
+        plain = "blue";
+      };
+      branch = {
+        sort = "-committerdate";
+      };
+      tag = {
+        sort = "-taggerdate";
+      };
+      pager = {
+        branch = false;
+        tag = false;
+      };
     };
   };
 
