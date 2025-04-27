@@ -325,22 +325,22 @@
       lg2 = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'";
       lg = "lg2";
     };
-    # delta = {
-    #   enable = true;
-    #   package =
-    # };
-    extraConfig = {
-      delta = {
+    delta = {
+      enable = true;
+      package = pkgs.delta;
+      options = {
         navigate = true;
-        line-numbers = true;
-        side-by-side = true;
-        syntax-highlighting = true;
+        dark = true;
       };
+    };
+    extraConfig = {
       merge = {
-        conflictstyle = "diff3";
+        conflictstyle = "zdiff3";
       };
       diff = {
-        colorMoved = "default";
+        context = 3;
+        renames = "copies";
+        interHunkContext = 10;
       };
     };
   };
