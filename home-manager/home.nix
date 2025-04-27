@@ -385,7 +385,7 @@
       };
       log = {
         abbrevCommit = true;
-        graphColors = "blue,tellow,cyan,magenta,green,red";
+        graphColors = "blue,yellow,cyan,magenta,green,red";
       };
       color."decorate" = {
         HEAD = "red";
@@ -438,8 +438,7 @@
       gc = "git commit";
       gp = "git push";
       gu = "git pull";
-      gl = "git log --all --graph --pretty=\
-      format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'";
+      gl = "git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'";
       gb = "git branch";
       gi = "git init";
       gcl = "git clone";
