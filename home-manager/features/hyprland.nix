@@ -31,7 +31,10 @@ in {
     ];
 
     settings = {
-      monitor = ",1920x1080@60, auto, 1";
+      monitor = [
+        "eDP-1,1920x1080@60, auto, 1"
+        "HDMI-A-1,preferred,auto,1,mirror,eDP-1"
+      ];
 
       env = [
         "MOZ_ENABLE_WAYLAND = 1"
@@ -299,6 +302,8 @@ in {
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
+        ", mouse:274, workspace, e-1"
+        ", mouse:275, workspace, e+1"
       ];
 
       bindl = ",switch:on:Lid Switch, exec, hyprlock";
