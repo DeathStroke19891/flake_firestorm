@@ -298,8 +298,8 @@ in {
         "$mainMod_SUPER, Tab, changegroupactive, f"
         "$mainMod_SUPER_SHIFT, Tab, changegroupactive, b"
 
-        ", mouse:274, workspace, e-1"
-        ", mouse:275, workspace, e+1"
+        ", mouse:275, workspace, e-1"
+        ", mouse:276, workspace, e+1"
       ];
 
       bindm = [
