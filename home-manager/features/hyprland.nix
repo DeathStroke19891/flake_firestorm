@@ -297,13 +297,14 @@ in {
         "$mainMod_SUPER, K, movewindoworgroup, u"
         "$mainMod_SUPER, Tab, changegroupactive, f"
         "$mainMod_SUPER_SHIFT, Tab, changegroupactive, b"
+
+        ", mouse:275, workspace, e-1"
+        ", mouse:276, workspace, e+1"
       ];
 
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
-        ", mouse:275, workspace, e-1"
-        ", mouse:276, workspace, e+1"
       ];
 
       bindl = ",switch:on:Lid Switch, exec, hyprlock";
