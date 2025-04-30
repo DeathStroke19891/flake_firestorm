@@ -143,9 +143,9 @@
     enable = true;
   };
 
-  programs.adb = {
-    enable = true;
-  };
+  # programs.adb = {
+  #   enable = true;
+  # };
 
   programs.auto-cpufreq.enable = true;
 
@@ -189,26 +189,26 @@
 
   virtualisation.podman.enable = true;
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [
-          (pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          })
-          .fd
-        ];
-      };
-    };
-  };
+  # virtualisation.libvirtd = {
+  #   enable = true;
+  #   qemu = {
+  #     package = pkgs.qemu_kvm;
+  #     runAsRoot = true;
+  #     swtpm.enable = true;
+  #     ovmf = {
+  #       enable = true;
+  #       packages = [
+  #         (pkgs.OVMF.override {
+  #           secureBoot = true;
+  #           tpmSupport = true;
+  #         })
+  #         .fd
+  #       ];
+  #     };
+  #   };
+  # };
 
-  programs.virt-manager.enable = true;
+  # programs.virt-manager.enable = true;
 
   programs.light.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
@@ -249,25 +249,21 @@
     wayland.enable = true;
   };
 
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = ["parzival"];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-    '';
-  };
+  # services.postgresql = {
+  #   enable = true;
+  #   ensureDatabases = ["parzival"];
+  #   authentication = pkgs.lib.mkOverride 10 ''
+  #     #type database  DBuser  auth-method
+  #     local all       all     trust
+  #   '';
+  # };
 
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  # };
 
   services.atd = {
-    enable = true;
-  };
-
-  services.kubo = {
     enable = true;
   };
 
