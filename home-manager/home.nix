@@ -204,11 +204,11 @@
     viewnior
     hypridle
     hyprlock
-    udiskie
+    # udiskie
     bottom
     # cava
     mpv
-    wl-mirror
+    # wl-mirror
 
     bc
     battery-health
@@ -219,7 +219,7 @@
     sl
     zsh-fzf-tab
     copyq
-    inputs.zen-browser.packages."${system}".default
+    # inputs.zen-browser.packages."${system}".default
 
     pass-wayland
     gnupg
@@ -234,28 +234,28 @@
     # veloren
 
     # calibre
-    libreoffice-fresh
+    # libreoffice-fresh
     libqalculate
     transmission_4-qt
-    mcomix
+    # mcomix
 
     jq
     socat
     hck
 
-    halloy
-    telegram-desktop
-    blender
+    # halloy
+    # telegram-desktop
+    # blender
 
-    neo4j
+    # neo4j
 
     # android-studio
     # android-studio-tools
     # jdk
     # chromium
 
-    quantum-espresso
-    mininet
+    # quantum-espresso
+    # mininet
 
     emacs
     obsidian
@@ -264,8 +264,8 @@
     enchant
     nodejs_22
 
-    speedtest-rs
-    porsmo
+    # speedtest-rs
+    # porsmo
 
     vscode
     amfora
@@ -283,7 +283,7 @@
     rnote
 
     pandoc
-    protonvpn-cli_2
+    # protonvpn-cli_2
 
     texliveFull
 
@@ -293,7 +293,7 @@
     nerd-fonts.monaspace
     nerd-fonts.mononoki
 
-    anki-bin
+    # anki-bin
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
