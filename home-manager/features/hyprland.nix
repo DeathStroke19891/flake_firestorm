@@ -298,9 +298,9 @@ in {
         "$mainMod_SUPER, Tab, changegroupactive, f"
         "$mainMod_SUPER_SHIFT, Tab, changegroupactive, b"
 
-        ", mouse:275, workspace, r-1"
-        ", mouse:276, workspace, r+1"
-        ", mouse:277, togglespecialworkspace, whats"
+        # ", mouse:275, workspace, r-1"
+        # ", mouse:276, workspace, r+1"
+        # ", mouse:277, togglespecialworkspace, whats"
       ];
 
       bindm = [
