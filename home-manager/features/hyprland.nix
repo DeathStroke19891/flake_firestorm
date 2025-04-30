@@ -290,6 +290,9 @@ in {
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
 
+        ", mouse_left, exec, pulsemixer --change-volume -5"
+        ", mouse_right, exec, pulsemixer --change-volume +5"
+
         "$mainMod_SUPER, T, togglegroup"
         "$mainMod_SUPER, H, movewindoworgroup, l"
         "$mainMod_SUPER, L, movewindoworgroup, r"
