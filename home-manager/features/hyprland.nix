@@ -300,7 +300,7 @@ in {
 
         ", mouse:275, workspace, r-1"
         ", mouse:276, workspace, r+1"
-        ", mouse:278, togglespecialworkspace, whats"
+        ", mouse:277, togglespecialworkspace, whats"
       ];
 
       bindm = [
