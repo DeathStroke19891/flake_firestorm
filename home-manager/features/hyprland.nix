@@ -304,7 +304,7 @@ in {
         ", mouse:275, workspace, r-1"
         ", mouse:276, workspace, r+1"
 
-        "$mainMod_CTRL_TAB, togglespecialworkspace, whats"
+        "$mainMod_CTRL_TAB,, togglespecialworkspace, whats"
       ];
 
       bindm = [
