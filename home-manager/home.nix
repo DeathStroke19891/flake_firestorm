@@ -216,7 +216,6 @@
     ripgrep
     fd
 
-    warp-terminal
     tlrc
     sl
     zsh-fzf-tab
