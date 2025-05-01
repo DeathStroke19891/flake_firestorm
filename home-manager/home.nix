@@ -339,12 +339,12 @@
         pushNonFastForward = false;
         statusHints = false;
       };
-      # url."git@github.com:DeathStroke19891/" = {
-      #   insteadOf = "ds:";
-      # };
-      # url."git@github.com:" = {
-      #   insteadOf = "gh:";
-      # };
+      url."git@github.com:DeathStroke19891/" = {
+        insteadOf = "ds:";
+      };
+      url."git@github.com:" = {
+        insteadOf = "gh:";
+      };
       # url."ssh://git@github.com/" = {
       #   insteadOf = "https://github.com/";
       # };
