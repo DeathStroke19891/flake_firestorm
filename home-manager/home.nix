@@ -339,77 +339,77 @@
         pushNonFastForward = false;
         statusHints = false;
       };
-      url."git@github.com:DeathStroke19891/" = {
-        insteadOf = "ds:";
-      };
-      url."git@github.com:" = {
-        insteadOf = "gh:";
-      };
-      url."ssh://git@github.com/" = {
-        insteadOf = "https://github.com/";
-      };
-      init = {
-        defaultBranch = "dev";
-      };
-      status = {
-        branch = true;
-        showStash = true;
-        showUntrackedFiles = "all";
-      };
-      merge = {
-        conflictstyle = "zdiff3";
-      };
-      interactive = {
-        singlekey = true;
-      };
-      diff = {
-        context = 3;
-        renames = "copies";
-        interHunkContext = 10;
-      };
-      commit = {
-        verbose = true;
-      };
-      push = {
-        autoSetupRemote = true;
-        default = "current";
-        followTags = true;
-      };
-      pull = {
-        default = true;
-        rebase = true;
-      };
-      rebase = {
-        autoStash = true;
-        missingCommitsCheck = "warn";
-      };
-      log = {
-        abbrevCommit = true;
-        graphColors = "blue,yellow,cyan,magenta,green,red";
-      };
-      color."decorate" = {
-        HEAD = "red";
-        branch = "blue";
-        tag = "yellow";
-        remoteBranch = "magenta";
-      };
-      color."branch" = {
-        current = "magenta";
-        local = "default";
-        remote = "yellow";
-        upstream = "green";
-        plain = "blue";
-      };
-      branch = {
-        sort = "-committerdate";
-      };
-      tag = {
-        sort = "-taggerdate";
-      };
-      pager = {
-        branch = false;
-        tag = false;
-      };
+      # url."git@github.com:DeathStroke19891/" = {
+      #   insteadOf = "ds:";
+      # };
+      # url."git@github.com:" = {
+      #   insteadOf = "gh:";
+      # };
+      # url."ssh://git@github.com/" = {
+      #   insteadOf = "https://github.com/";
+      # };
+      # init = {
+      #   defaultBranch = "dev";
+      # };
+      # status = {
+      #   branch = true;
+      #   showStash = true;
+      #   showUntrackedFiles = "all";
+      # };
+      # merge = {
+      #   conflictstyle = "zdiff3";
+      # };
+      # interactive = {
+      #   singlekey = true;
+      # };
+      # diff = {
+      #   context = 3;
+      #   renames = "copies";
+      #   interHunkContext = 10;
+      # };
+      # commit = {
+      #   verbose = true;
+      # };
+      # push = {
+      #   autoSetupRemote = true;
+      #   default = "current";
+      #   followTags = true;
+      # };
+      # pull = {
+      #   default = true;
+      #   rebase = true;
+      # };
+      # rebase = {
+      #   autoStash = true;
+      #   missingCommitsCheck = "warn";
+      # };
+      # log = {
+      #   abbrevCommit = true;
+      #   graphColors = "blue,yellow,cyan,magenta,green,red";
+      # };
+      # color."decorate" = {
+      #   HEAD = "red";
+      #   branch = "blue";
+      #   tag = "yellow";
+      #   remoteBranch = "magenta";
+      # };
+      # color."branch" = {
+      #   current = "magenta";
+      #   local = "default";
+      #   remote = "yellow";
+      #   upstream = "green";
+      #   plain = "blue";
+      # };
+      # branch = {
+      #   sort = "-committerdate";
+      # };
+      # tag = {
+      #   sort = "-taggerdate";
+      # };
+      # pager = {
+      #   branch = false;
+      #   tag = false;
+      # };
     };
   };
 
