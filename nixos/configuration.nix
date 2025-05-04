@@ -121,10 +121,6 @@
     psmisc
     dbus
     wireplumber
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5ct
-    libsForQt5.qt5.qtgraphicaleffects
-    qt6Packages.qt6ct
     nix-alien
     docker-compose
   ];
