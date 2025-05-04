@@ -31,8 +31,6 @@
       outputs.overlays.modifications
       outputs.overlays.stable-packages
 
-      inputs.nix-alien.overlays.default
-
       (final: prev: {
         nvchad = inputs.nvchad4nix.packages."${pkgs.system}".nvchad;
       })
@@ -70,8 +68,6 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # FIXME: Add the rest of your current configuration
-
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
@@ -87,6 +83,7 @@
   environment.etc = {
     "resolv.conf".text = "nameserver 9.9.9.9\n";
   };
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -121,7 +118,6 @@
     psmisc
     dbus
     wireplumber
-    nix-alien
     docker-compose
   ];
 
@@ -133,10 +129,6 @@
     NIXOS_OZONE_WL = "1";
     HYPRCURSOR_THEME = "hyprcursor_Dracula";
     HYPRCURSOR_SIZE = "24";
-  };
-
-  programs.nix-ld = {
-    enable = true;
   };
 
   # programs.adb = {
