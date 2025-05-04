@@ -142,23 +142,10 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
-    style = {
-      name = "qt5ct-style";
-      package = pkgs.catppuccin-qt5ct;
-    };
   };
-
-  # catppuccin.flavor = "mocha";
 
   gtk = {
     enable = true;
-
-    # catppuccin = {
-    #   enable = true;
-    #   accent = "lavender";
-    #   size = "standard";
-    # };
 
     cursorTheme.package = pkgs.phinger-cursors;
     cursorTheme.name = "phinger-cursors-dark";
@@ -272,7 +259,6 @@
     amfora
     wireplumber
 
-    catppuccin-qt5ct
     nemo-with-extensions
     yazi
 
