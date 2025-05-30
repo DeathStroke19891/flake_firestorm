@@ -207,7 +207,7 @@
     sl
     zsh-fzf-tab
     copyq
-    # inputs.zen-browser.packages."${system}".default
+    inputs.zen-browser.packages."${system}".default
 
     pass-wayland
     gnupg
