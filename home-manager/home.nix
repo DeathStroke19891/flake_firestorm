@@ -415,6 +415,7 @@
       ls = "eza";
       rm = "trash -c always put";
       cat = "bat";
+      vim = "nvim";
 
       gs = "git status --short";
       gd = "git diff --output-indicator-new=' ' --output-indicator-old=' '";
