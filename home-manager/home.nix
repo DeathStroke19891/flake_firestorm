@@ -280,6 +280,8 @@
     nerd-fonts.monaspace
     nerd-fonts.mononoki
 
+    elan
+    typst
     # anki-bin
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
