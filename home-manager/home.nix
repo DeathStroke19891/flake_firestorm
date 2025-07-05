@@ -272,6 +272,9 @@
     # protonvpn-cli_2
 
     texliveFull
+    ((emacsPackagesFor emacs).emacsWithPackages (
+      epkgs: [epkgs.vterm]
+    ))
 
     noto-fonts-emoji
     nerd-fonts.fira-code
@@ -301,11 +304,6 @@
     enable = true;
     enableZshIntegration = true;
     pinentryPackage = pkgs.pinentry-qt;
-  };
-
-  programs.emacs = {
-    enable = true;
-    extraPackages = emacsPackages: [emacsPackages.vterm];
   };
 
   programs.git = {
