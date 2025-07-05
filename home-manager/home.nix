@@ -245,7 +245,6 @@
     # quantum-espresso
     # mininet
 
-    emacs
     obsidian
     # logseq
 
@@ -302,6 +301,11 @@
     enable = true;
     enableZshIntegration = true;
     pinentryPackage = pkgs.pinentry-qt;
+  };
+
+  programs.emacs = {
+    enable = true;
+    extraPackages = emacsPackages: [emacsPackages.vterm];
   };
 
   programs.git = {
