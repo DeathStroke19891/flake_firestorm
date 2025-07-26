@@ -438,7 +438,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["sudo" "colored-man-pages"];
+      plugins = ["sudo" "colored-man-pages" "direnv"];
     };
 
     plugins = [
@@ -479,6 +479,12 @@
       fpath=(${pkgs.trashy}/share/zsh/site-functions \
              $fpath)
     '';
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.eza = {
