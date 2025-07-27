@@ -163,10 +163,6 @@
   environment.pathsToLink = ["/share/zsh"];
   programs.zsh.enable = true;
 
-  programs.steam = {
-    enable = true;
-  };
-
   virtualisation.docker = {
     enable = true;
     rootless = {
