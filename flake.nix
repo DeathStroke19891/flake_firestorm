@@ -16,10 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-alien.url = "github:thiagokokada/nix-alien";
-
-    nix-snapd = {
-      url = "github:nix-community/nix-snapd";
+    silendSDDM = {
+      url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -37,6 +35,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
+
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +43,6 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nur.url = "github:nix-community/NUR";
-    catppuccin.url = "github:catppuccin/nix";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
