@@ -81,7 +81,7 @@
   networking.networkmanager.enable = true;
   networking.enableIPv6 = true;
   environment.etc = {
-    "resolv.conf".text = "nameserver 9.9.9.9\n";
+    "resolv.conf".text = "nameserver 1.1.1.1\n";
   };
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
