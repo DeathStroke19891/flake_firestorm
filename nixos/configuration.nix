@@ -119,6 +119,7 @@
     dbus
     wireplumber
     docker-compose
+    cachix
   ];
 
   fonts.packages = with pkgs; [
