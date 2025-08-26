@@ -1360,23 +1360,23 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
         "nvchad4nix": "nvchad4nix",
-        "silendSDDM": "silendSDDM",
+        "silentSDDM": "silentSDDM",
         "xremap-flake": "xremap-flake",
         "zen-browser": "zen-browser"
       }
     },
-    "silendSDDM": {
+    "silentSDDM": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1754081157,
-        "narHash": "sha256-NnAc8FaMtQj7aNNKC/B40E0/Awo4U0xDaiQ4EK/zcqQ=",
+        "lastModified": 1755106409,
+        "narHash": "sha256-3UWu7uMezJwyFGxfjYdy6I8e0OXg/BW3Oc6NBSUg2NY=",
         "owner": "uiriansan",
         "repo": "SilentSDDM",
-        "rev": "6e4507e780995320f36ebbf414df218583e87380",
+        "rev": "8ea5b24b4633383cd51ed42ec0a4d970f6be5baa",
         "type": "github"
       },
       "original": {
