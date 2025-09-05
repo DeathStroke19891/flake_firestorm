@@ -192,7 +192,8 @@ in {
       };
 
       gesture = [
-        "3, horizontal, workspace"
+        "3, right, workspace, +1"
+        "3, left, workspace, -1"
       ];
 
       misc = {
