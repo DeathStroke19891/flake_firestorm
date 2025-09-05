@@ -163,9 +163,9 @@ in {
       #   };
       # };
 
-      # "plugin:hyprtrails" = {
-      #   color = "rgba(ffaa00ff)";
-      # };
+      "plugin:hyprtrails" = {
+        color = "rgba(ffaa00ff)";
+      };
 
       "plugin:dynamic-cursors" = {
         enabled = true;
@@ -192,8 +192,8 @@ in {
       };
 
       gesture = [
-        "3, right, workspace, +1"
-        "3, left, workspace, -1"
+        "3, right, workspace, e+1"
+        "3, left, workspace, e-1"
       ];
 
       misc = {
