@@ -191,10 +191,9 @@ in {
         mfact = 0.50;
       };
 
-      gestures = {
-        workspace_swipe = "on";
-        workspace_swipe_forever = true;
-      };
+      gestures = [
+        "3, horizontal, workspace"
+      ];
 
       misc = {
         enable_swallow = true;
