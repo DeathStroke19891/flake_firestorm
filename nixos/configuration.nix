@@ -136,21 +136,19 @@
   #   enable = true;
   # };
 
-  programs.auto-cpufreq.enable = true;
-
-  programs.auto-cpufreq.settings = {
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-  };
-
-  # services.snap.enable = true;
+  # programs.auto-cpufreq.enable = true;
+  #
+  # programs.auto-cpufreq.settings = {
+  #   charger = {
+  #     governor = "performance";
+  #     turbo = "auto";
+  #   };
+  #
+  #   battery = {
+  #     governor = "powersave";
+  #     turbo = "never";
+  #   };
+  # };
 
   programs.hyprland = {
     enable = true;
