@@ -191,7 +191,7 @@ in {
         mfact = 0.50;
       };
 
-      gestures = [
+      gesture = [
         "3, horizontal, workspace"
       ];
 
