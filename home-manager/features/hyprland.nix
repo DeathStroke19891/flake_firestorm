@@ -25,9 +25,8 @@ in {
     systemd.enable = false;
 
     plugins = [
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-      # inputs.hyprfocus.packages.${pkgs.system}.hyprfocus
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
     ];
 
     settings = {
@@ -121,6 +120,7 @@ in {
           "winIn, 0.1, 1.1, 0.1, 1.1"
           "winOut, 0.3, -0.3, 0, 1"
           "liner, 1, 1, 1, 1"
+          "realsmooth, 0.28,0.29,.69,1.08"
         ];
         animation = [
           "windows, 1, 6, wind, slide"
@@ -131,6 +131,8 @@ in {
           "borderangle, 1, 30, liner, loop"
           "fade, 1, 10, default"
           "workspaces, 1, 5, wind"
+          "hyprfocusIn, 1, 1.7, realsmooth"
+          "hyprfocusOut, 1, 1.7, realsmooth"
         ];
       };
 
