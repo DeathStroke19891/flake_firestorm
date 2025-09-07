@@ -34,7 +34,7 @@
       };
 
       window = {
-        opacity = 0.0;
+        opacity = 0.4;
 
         padding = {
           x = 0;
