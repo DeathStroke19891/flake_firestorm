@@ -58,7 +58,7 @@
 
   services.xremap = {
     enable = true;
-    withWlroots = true;
+    withHypr = true;
     config = {
       modmap = [
         {
