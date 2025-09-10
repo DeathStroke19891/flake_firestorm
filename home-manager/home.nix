@@ -64,7 +64,7 @@
         {
           name = "main remaps";
           remap = {
-            "rightalt" = "meta";
+            "rightalt" = "leftmeta";
             CapsLock = {
               held = "leftctrl";
               alone = "esc";
