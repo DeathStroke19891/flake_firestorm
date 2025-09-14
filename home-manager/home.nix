@@ -176,6 +176,7 @@
 
     floorp
     firefox
+    google-chrome
 
     grimblast
     screenshot
