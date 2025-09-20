@@ -6,7 +6,7 @@
 }: let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     #${pkgs.emacs} --init-directory $HOME/.config/emacs --daemon
-    ${pkgs.swww}/bin/swww init &
+    ${pkgs.swww}/bin/swww-daemon &
 
     ${pkgs.mako}/bin/mako &
 
@@ -15,6 +15,7 @@
     ${pkgs.wl-clipboard}/wl-paste --type text --watch cliphist store &
     ${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store &
 
+    ${pkgs.emacs}/bin/emacs --daemon &
     ${pkgs.hypridle}/bin/hypridle &
     ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE
   '';
@@ -49,7 +50,7 @@ in {
         "[workspace special:spot silent] spotify"
         "[workspace special:term silent] alacritty"
         "[workspace special:whats silent] firefox"
-        "[workspace special:doom silent] alacritty -e nvim"
+        "[workspace special:doom silent] emacsclient -c -a 'emacs'"
         "[workspace special:calc silent] alacritty -e qalc"
         "[workspace special:torrent silent] transmission-qt"
         "[workspace special:anki silent] anki"
@@ -210,7 +211,7 @@ in {
         "$mainMod, E, exec, alacritty -e yazi"
         "$mainMod, F, exec, floorp"
         "$mainMod SHIFT, F, exec, floorp -P College"
-        "$mainMod, D, exec, alacritty -e nvim"
+        "$mainMod, D, exec, emacsclient -c -a 'emacs'"
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
         "$mainMod, R, exec, rofi -show drun"
         "$mainMod, S, exec, sioyek"
