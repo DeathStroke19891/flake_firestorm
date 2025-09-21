@@ -8,4 +8,5 @@ pkgs: {
   screenshot = pkgs.callPackage ./screenshot {inherit pkgs;};
   rebuild = pkgs.callPackage ./rebuild {inherit pkgs;};
   home-rebuild = pkgs.callPackage ./home-rebuild {inherit pkgs;};
+  track = pkgs.callPackage ./track {inherit pkgs;};
 }
