@@ -179,6 +179,7 @@
     google-chrome
 
     emacs-lsp-booster
+    timewarrior
 
     grimblast
     screenshot
