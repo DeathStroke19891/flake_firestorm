@@ -1,6 +1,6 @@
 { pkgs }:
 
-pkgs.writeShellScriptBin "category-tracker" ''
+pkgs.writeShellScriptBin "track" ''
   #!/bin/bash
   set -e
 
