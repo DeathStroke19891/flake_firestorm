@@ -459,6 +459,7 @@
 
     initExtra = ''
       PATH=$HOME/Android/Sdk/platform-tools/:$PATH
+      LSP_USE_PLISTS=true
       HISTDUP=erase
       setopt HIST_FIND_NO_DUPS
       setopt HIST_SAVE_NO_DUPS
