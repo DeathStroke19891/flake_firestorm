@@ -178,6 +178,8 @@
     firefox
     google-chrome
 
+    emacs-lsp-booster
+
     grimblast
     screenshot
 
