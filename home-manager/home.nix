@@ -93,7 +93,11 @@
       {
         plugin = tmuxPlugins.power-theme;
         extraConfig = ''
-          set -g @tmux_power_theme 'moon'
+          set -g @tmux_power_theme 'gold'
+          set -g @tmux_power_right_separator '|'  # Optional: makes it cleaner
+          set -g @tmux_power_right_status 'PROGRAMMING'
+          set -g @tmux_power_right_icon_color 'black'
+          set -g @tmux_power_right_text_color 'brightgreen'
         '';
       }
       {
