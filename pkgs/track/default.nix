@@ -20,10 +20,15 @@ pkgs.writeShellScriptBin "track" ''
   fi
 
   if [[ "$selected" == "STOP" ]]; then
-    ${pkgs.timewarrior}/bin/timew stop
+    # only stop if something is running
+    if ${pkgs.timewarrior}/bin/timew >/dev/null 2>&1; then
+      ${pkgs.timewarrior}/bin/timew stop
+    fi
     ${pkgs.tmux}/bin/tmux set -g status-right "$ORIG_STATUS"
   else
-    ${pkgs.timewarrior}/bin/timew stop
+    if ${pkgs.timewarrior}/bin/timew >/dev/null 2>&1; then
+      ${pkgs.timewarrior}/bin/timew stop
+    fi
     ${pkgs.timewarrior}/bin/timew start "$selected"
     cleaned_status=$(${pkgs.tmux}/bin/tmux show -gv status-right | ${pkgs.gnused}/bin/sed 's/ *#\[category\][^#]*#\[default\]//')
     ${pkgs.tmux}/bin/tmux set -g status-right "$cleaned_status #[fg=black,bg=brightgreen,bold] #[category]$selected #[default]"
