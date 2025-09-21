@@ -1,14 +1,15 @@
 { pkgs }:
 
-pkgs.writeShellScriptBin "track" ''
+pkgs.writeShellScriptBin "category-tracker" ''
+  #!/bin/bash
   set -e
 
   CATEGORIES=( "MATH" "PROGRAMMING" "WASTED" "CTF" "PARIAH" "WORK" "STOP" )
 
-  ORIG_STATUS=$(${pkgs.tmux}/bin/tmux show -gv "@orig_status_right")
+  ORIG_STATUS=$(${pkgs.tmux}/bin/tmux show-options -gqv @orig_status_right)
   if [ -z "$ORIG_STATUS" ]; then
     ${pkgs.tmux}/bin/tmux set-option -gq @orig_status_right "$(${pkgs.tmux}/bin/tmux show -gv status-right)"
-    ORIG_STATUS=$(${pkgs.tmux}/bin/tmux show -gv "@orig_status_right")
+    ORIG_STATUS=$(${pkgs.tmux}/bin/tmux show-options -gqv @orig_status_right)
   fi
 
   selected=$(printf "%s\n" "''${CATEGORIES[@]}" | ${pkgs.fzf}/bin/fzf --prompt="Select category: ")
@@ -24,7 +25,7 @@ pkgs.writeShellScriptBin "track" ''
   else
     ${pkgs.timewarrior}/bin/timew stop
     ${pkgs.timewarrior}/bin/timew start "$selected"
-    cleaned_status=$(${pkgs.tmux}/bin/tmux show -gv status-right | sed 's/ *#\[category\][^#]*#\[default\]//')
+    cleaned_status=$(${pkgs.tmux}/bin/tmux show -gv status-right | ${pkgs.gnused}/bin/sed 's/ *#\[category\][^#]*#\[default\]//')
     ${pkgs.tmux}/bin/tmux set -g status-right "$cleaned_status #[fg=black,bg=brightgreen,bold] #[category]$selected #[default]"
   fi
 ''
