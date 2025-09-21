@@ -260,8 +260,6 @@
 
     enchant
     nodejs_22
-    rust-analyzer
-    wgsl-analyzer
 
     # speedtest-rs
     # porsmo
