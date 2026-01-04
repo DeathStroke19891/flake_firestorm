@@ -270,6 +270,7 @@
 
     nemo-with-extensions
     yazi
+    audible-cli
 
     klavaro
 
