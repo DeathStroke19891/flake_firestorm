@@ -271,6 +271,7 @@
     nemo-with-extensions
     yazi
     audible-cli
+    android-tools
 
     klavaro
 
