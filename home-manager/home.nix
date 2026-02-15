@@ -16,7 +16,7 @@
     # inputs.nix-colors.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
     inputs.xremap-flake.homeManagerModules.default
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
     inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
     inputs.nvchad4nix.homeManagerModule
     inputs.hyprland.homeManagerModules.default
@@ -321,17 +321,11 @@
 
   programs.git = {
     enable = true;
-    userName = "Sridhar D Kedlaya";
-    userEmail = "sridhardked@gmail.com";
-    delta = {
-      enable = true;
-      package = pkgs.delta;
-      options = {
-        navigate = true;
-        dark = true;
+    settings = {
+      user = {
+        name = "Sridhar D Kedlaya";
+        email = "sridhardked@gmail.com";
       };
-    };
-    extraConfig = {
       core = {
         compression = 9;
         whitespace = "error";
@@ -413,6 +407,16 @@
         branch = false;
         tag = false;
       };
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    package = pkgs.delta;
+    options = {
+      navigate = true;
+      dark = true;
     };
   };
 
