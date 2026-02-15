@@ -169,29 +169,29 @@
 
   home.packages = with pkgs; [
     sioyek
-    foliate
+    # foliate
 
     nur.repos.nltch.spotify-adblock
 
     alejandra
 
-    taskwarrior3
-    taskwarrior-tui
+    # taskwarrior3
+    # taskwarrior-tui
 
-    floorp
+    floorp-bin
     firefox
-    google-chrome
+    # google-chrome
 
     emacs-lsp-booster
 
-    timewarrior
-    track
+    # timewarrior
+    # track
 
     grimblast
     screenshot
 
     mako
-    rofi-wayland
+    rofi
     wl-clipboard
     swww
     pulsemixer
@@ -225,7 +225,7 @@
     pass-show
     # (import ./derivations/pass.nix {inherit pkgs;})
 
-    at
+    # at
     # alarm
 
     # airshipper
@@ -265,20 +265,20 @@
     # porsmo
 
     vscode
-    amfora
+    # amfora
     wireplumber
 
-    nemo-with-extensions
+    # nemo-with-extensions
     yazi
-    audible-cli
-    android-tools
+    # audible-cli
+    # android-tools
 
-    klavaro
+    # klavaro
 
     mgba
     ueberzugpp
 
-    rnote
+    # rnote
 
     pandoc
     # protonvpn-cli_2
@@ -288,14 +288,14 @@
       epkgs: [epkgs.vterm]
     ))
 
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
     nerd-fonts.monaspace
     nerd-fonts.mononoki
 
     elan
-    typst
+    # typst
     processing
     # anki-bin
 
