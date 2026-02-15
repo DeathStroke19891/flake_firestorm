@@ -32,7 +32,7 @@
       outputs.overlays.stable-packages
 
       (final: prev: {
-        nvchad = inputs.nvchad4nix.packages."${pkgs.system}".nvchad;
+        nvchad = inputs.nvchad4nix.packages."${pkgs.stdenv.hostPlatform.system}".nvchad;
       })
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -153,7 +153,7 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
   };
 
   xdg.portal.enable = true;
