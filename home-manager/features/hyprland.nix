@@ -108,10 +108,10 @@ in {
         # shadow_range = 10;
         # shadow_render_power = 5;
         # "col.shadow" = "0x66000000";
-        blurls = [
-          "gtk-layer-shell"
-          "lockscreen"
-        ];
+        # blurls = [
+        #   "gtk-layer-shell"
+        #   "lockscreen"
+        # ];
       };
 
       # animations = {
@@ -201,7 +201,7 @@ in {
 
       misc = {
         enable_swallow = true;
-        new_window_takes_over_fullscreen = 2;
+        # new_window_takes_over_fullscreen = 2;
       };
 
       "$mainMod" = "ALT";
