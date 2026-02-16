@@ -22,8 +22,8 @@
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
-    systemd.enable = false;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     plugins = [
       inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
