@@ -158,12 +158,13 @@
     iconTheme.name = "candy-icons";
   };
 
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
-  };
+  # dconf.settings = {
+  #   "org/virt-manager/virt-manager/connections" = {
+  #     autoconnect = ["qemu:///system"];
+  #     uris = ["qemu:///system"];
+  #   };
+  # };
+  dconf.enable = false;
 
   fonts.fontconfig.enable = true;
 
