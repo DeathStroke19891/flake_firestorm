@@ -52,7 +52,7 @@ in {
         "[workspace special:doom silent] emacs"
         "[workspace special:calc silent] alacritty -e qalc"
         "[workspace special:torrent silent] transmission-qt"
-        "[workspace special:spot silent] spotify"
+        "[workspace special:spot silent] spotify-adblock"
       ];
 
       exec = "hyprshade auto";

@@ -18,6 +18,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
     inputs.auto-cpufreq.nixosModules.default
+    inputs.silentSDDM.nixosModules.default
     # inputs.nix-snapd.nixosModules.default
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -234,10 +235,10 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  services.displayManager.sddm = {
+  programs.silentSDDM = {
     enable = true;
-    theme = "${pkgs.astronaut-sddm-theme}";
-    wayland.enable = true;
+    theme = "rei";
+    # settings = { ... }; see example in module
   };
 
   # services.postgresql = {
