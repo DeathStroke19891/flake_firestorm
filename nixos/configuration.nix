@@ -159,11 +159,10 @@
   #   };
   # };
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   # withUWSM = true;
-  #   package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
-  # };
+  programs.hyprland = {
+    enable = true;
+    # withUWSM = true;
+  };
 
   # xdg.portal.enable = true;
   # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
