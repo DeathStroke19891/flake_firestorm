@@ -239,7 +239,7 @@
     theme = "rei";
     settings = {
       profileIcons = {
-        parzival = toString ../assets/profile_picture.png;
+        parzival = "/home/parzival/flake_firestorm/assets/profile_picture.png";
         # parzival = fetchurl {
         #   url = "https://i.ibb.co/3g59mN5/profile-picture.png";
         #   hash = "";
