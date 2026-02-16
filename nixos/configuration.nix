@@ -237,6 +237,11 @@
   programs.silentSDDM = {
     enable = true;
     theme = "rei";
+    settings = {
+      profileIcons = {
+        parzival = "/home/parzival/pictures/wallpapers/profile_picture.png";
+      };
+    };
     # settings = { ... }; see example in module
   };
 
