@@ -239,11 +239,11 @@
     theme = "rei";
     settings = {
       profileIcons = {
-        parzival = "/home/parzival/flake_firestorm/assets/profile_picture.png";
-        # parzival = fetchurl {
-        #   url = "https://i.ibb.co/3g59mN5/profile-picture.png";
-        #   hash = "";
-        # };
+        # parzival = "/home/parzival/flake_firestorm/assets/profile_picture.png";
+        parzival = pkgs.fetchurl {
+          url = "https://i.ibb.co/3g59mN5/profile-picture.png";
+          hash = "sha256-F/8aQT1aDXwtJ/Q9ddy7hYptjTQ+d7rgRUTqAhGegPQ=";
+        };
       };
     };
     # settings = { ... }; see example in module
