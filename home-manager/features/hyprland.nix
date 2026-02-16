@@ -47,13 +47,12 @@ in {
       exec-once = [
         ''${startupScript}/bin/start''
         "eww open bar"
-        "[workspace special:spot silent] spotify"
         "[workspace special:term silent] alacritty"
         "[workspace special:whats silent] firefox"
         "[workspace special:doom silent] emacs"
         "[workspace special:calc silent] alacritty -e qalc"
         "[workspace special:torrent silent] transmission-qt"
-        "[workspace special:anki silent] anki"
+        "[workspace special:spot silent] spotify"
       ];
 
       exec = "hyprshade auto";
