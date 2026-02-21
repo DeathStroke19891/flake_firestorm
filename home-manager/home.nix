@@ -322,7 +322,7 @@
   services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentry.package = pkgs.pinentry-qt;
   };
 
   programs.git = {
@@ -465,7 +465,7 @@
       ignoreAllDups = true;
     };
 
-    initExtra = ''
+    initContent = ''
       PATH=$HOME/Android/Sdk/platform-tools/:$PATH
       LSP_USE_PLISTS=true
       HISTDUP=erase
@@ -485,9 +485,8 @@
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa $realpath'
       zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'exa $realpath'
 
-
       fpath=(${pkgs.trashy}/share/zsh/site-functions \
-             $fpath)
+            $fpath)
     '';
 
     dotDir = "${config.xdg.configHome}/zsh";
