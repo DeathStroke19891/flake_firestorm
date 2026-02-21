@@ -443,24 +443,11 @@
       rm = "trash -c always put";
       cat = "bat";
       vim = "nvim";
-
-      gs = "git status --short";
-      gd = "git diff --output-indicator-new=' ' --output-indicator-old=' '";
-      gds = "git diff --staged";
-      ga = "git add";
-      gap = "git add --patch";
-      gc = "git commit";
-      gp = "git push";
-      gu = "git pull";
-      gl = "git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'";
-      gb = "git branch";
-      gi = "git init";
-      gcl = "git clone";
     };
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["sudo" "colored-man-pages" "direnv"];
+      plugins = ["sudo" "colored-man-pages" "direnv" "git" "git-commit"];
     };
 
     plugins = [
@@ -502,6 +489,8 @@
       fpath=(${pkgs.trashy}/share/zsh/site-functions \
              $fpath)
     '';
+
+    dotDir = "${config.xdg.configHome}/zsh";
   };
 
   programs.direnv = {
