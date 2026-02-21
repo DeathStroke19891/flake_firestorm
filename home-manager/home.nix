@@ -274,6 +274,7 @@
     # audible-cli
     # android-tools
 
+    hledger-ui
     # klavaro
 
     mgba
