@@ -262,8 +262,6 @@
     enchant
     nodejs_22
 
-    pnpm
-
     # speedtest-rs
     # porsmo
 
