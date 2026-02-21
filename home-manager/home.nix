@@ -314,6 +314,7 @@
   home.sessionVariables = {
     EDITOR = "vim";
     STEAM_APP_DIR = "/home/parzival/.local/share/Steam/steamapps/common/";
+    LEDGER_FILE = "/home/parzival/parallaxa/main.journal";
   };
 
   programs.home-manager.enable = true;
