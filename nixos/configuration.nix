@@ -217,6 +217,8 @@
 
   hardware.uinput.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   # sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
