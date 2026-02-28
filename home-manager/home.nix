@@ -277,7 +277,7 @@
     hledger
     hledger-ui
     # klavaro
-    cinny
+    element-desktop
 
     mgba
     ueberzugpp
