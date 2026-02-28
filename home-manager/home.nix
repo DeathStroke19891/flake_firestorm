@@ -277,6 +277,7 @@
     hledger
     hledger-ui
     # klavaro
+    cinny
 
     mgba
     ueberzugpp
