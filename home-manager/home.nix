@@ -170,23 +170,16 @@
 
   home.packages = with pkgs; [
     sioyek
-    # foliate
 
     nur.repos.nltch.spotify-adblock
 
     alejandra
-
-    # taskwarrior3
-    # taskwarrior-tui
 
     floorp-bin
     firefox
     # google-chrome
 
     emacs-lsp-booster
-
-    # timewarrior
-    # track
 
     grimblast
     screenshot
@@ -202,11 +195,8 @@
     viewnior
     hypridle
     hyprlock
-    # udiskie
     bottom
-    # cava
     mpv
-    # wl-mirror
 
     bc
     battery-health
@@ -224,45 +214,25 @@
     gnupg
     pinentry-qt
     pass-show
-    # (import ./derivations/pass.nix {inherit pkgs;})
 
-    # at
-    # alarm
-
-    # airshipper
-    # veloren
-
-    # calibre
-    # libreoffice-fresh
     libqalculate
     transmission_4-qt
-    # mcomix
 
     jq
     socat
     hck
 
     # halloy
-    # telegram-desktop
-    # blender
 
     # neo4j
-
-    # android-studio
-    # android-studio-tools
-    # jdk
-    # chromium
-
-    # quantum-espresso
-    # mininet
 
     obsidian
     # logseq
 
     enchant
     nodejs_22
+    zed
 
-    # speedtest-rs
     # porsmo
 
     vscode
@@ -285,8 +255,6 @@
     # rnote
 
     pandoc
-    # protonvpn-cli_2
-
     texliveFull
     ((emacsPackagesFor emacs).emacsWithPackages (
       epkgs: [epkgs.vterm]
@@ -301,7 +269,6 @@
     elan
     # typst
     processing
-    # anki-bin
 
     godot
     blender
