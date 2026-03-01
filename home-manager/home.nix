@@ -417,9 +417,20 @@
     };
   };
 
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        email = "sridhar@sridharkedlaya.xyz";
+        name = "Sridhar D Kedlaya";
+      };
+    };
+  };
+
   programs.delta = {
     enable = true;
     enableGitIntegration = true;
+    enableJujutsuIntegration = true;
     package = pkgs.delta;
     options = {
       navigate = true;
