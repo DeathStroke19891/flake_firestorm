@@ -279,8 +279,6 @@
     # klavaro
     element-desktop
 
-    gitoxide
-
     mgba
     ueberzugpp
 
