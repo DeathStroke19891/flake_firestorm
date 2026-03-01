@@ -486,6 +486,7 @@
 
       source ~/.p10k.zsh
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+      source <(COMPLETE=zsh jj)
 
       bindkey -e
       bindkey '^p' history-search-backward
