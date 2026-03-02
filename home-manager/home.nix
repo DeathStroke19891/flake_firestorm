@@ -231,6 +231,9 @@
 
     enchant
     nodejs_22
+    clang
+    libclang
+
     zed
 
     # porsmo
