@@ -244,6 +244,7 @@ in {
         "$mainMod_CTRL, W, togglespecialworkspace, whats"
         "$mainMod_CTRL, C, togglespecialworkspace, calc"
         "$mainMod_CTRL, S, togglespecialworkspace, spot"
+        "$mainMod_CTRL, T, togglespecialworkspace, thunder"
         "$mainMod_CTRL, O, togglespecialworkspace, torrent"
         "$mainMod_CTRL, A, togglespecialworkspace, anki"
         "$mainMod_CTRL, R, togglespecialworkspace, random"
