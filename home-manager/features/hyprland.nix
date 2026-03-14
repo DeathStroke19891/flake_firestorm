@@ -49,6 +49,7 @@ in {
         "eww open bar"
         "[workspace special:term silent] alacritty"
         "[workspace special:whats silent] firefox"
+        "[workspace special:thunder silent] thunderbird"
         "[workspace special:doom silent] emacs"
         "[workspace special:calc silent] alacritty -e qalc"
         "[workspace special:torrent silent] transmission-qt"

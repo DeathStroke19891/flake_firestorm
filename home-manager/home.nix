@@ -234,6 +234,7 @@
 
     zed-editor
 
+    thunderbird
     # porsmo
 
     vscode
