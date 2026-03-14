@@ -232,7 +232,7 @@
     enchant
     nodejs_22
 
-    zed
+    zed-editor
 
     # porsmo
 
