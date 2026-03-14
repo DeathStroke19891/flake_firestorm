@@ -266,7 +266,7 @@ in {
         "$mainMod_SHIFT, SPACE, layoutmsg, orientationprev"
 
         "$mainMod, P, pseudo,"
-        "$mainMod, T, togglesplit,"
+        "$mainMod, T, layoutmsg, togglesplit,"
 
         "$mainMod, H, movefocus, l"
         "$mainMod, L, movefocus, r"
