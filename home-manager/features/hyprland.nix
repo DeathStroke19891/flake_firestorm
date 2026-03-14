@@ -26,7 +26,7 @@ in {
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     plugins = [
-      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+      # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
     ];
 
@@ -169,14 +169,14 @@ in {
         color = "rgba(ffaa00ff)";
       };
 
-      "plugin:dynamic-cursors" = {
-        enabled = true;
-        mode = "tilt";
-        shake = {
-          enabled = true;
-          nearest = false;
-        };
-      };
+      # "plugin:dynamic-cursors" = {
+      #   enabled = true;
+      #   mode = "tilt";
+      #   shake = {
+      #     enabled = true;
+      #     nearest = false;
+      #   };
+      # };
 
       dwindle = {
         # no_gaps_when_only = false;
