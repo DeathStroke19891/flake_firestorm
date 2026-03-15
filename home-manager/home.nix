@@ -231,8 +231,6 @@
     enchant
     nodejs_22
 
-    zed-editor
-
     thunderbird
     # porsmo
 
@@ -501,6 +499,10 @@
     tmux = {
       enableShellIntegration = true;
     };
+  };
+
+  programs.zed-editor = {
+    enable = true;
   };
 
   home.username = "parzival";
