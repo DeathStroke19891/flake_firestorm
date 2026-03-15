@@ -29,6 +29,7 @@
     ./features/hyprlock.nix
     ./features/hypridle.nix
     ./features/hyprshade.nix
+    ./features/sioyek.nix
   ];
 
   nixpkgs = {
@@ -169,8 +170,6 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    sioyek
-
     nur.repos.nltch.spotify-adblock
 
     alejandra
