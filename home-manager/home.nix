@@ -58,9 +58,16 @@
   };
 
   services.xremap = {
-    enable = false;
+    enable = true;
     withHypr = true;
     config = {
+      device = {
+        only = [
+          "AT Translated Set 2 keyboard"
+          "Logitech K850"
+          "Varmilo VD-1 Keyboard"
+        ];
+      };
       modmap = [
         {
           name = "main remaps";
