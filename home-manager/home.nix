@@ -72,6 +72,13 @@
               alone_timeout_millis = 150;
             };
           };
+          device = {
+            only = [
+              "AT Translated Set 2 keyboard"
+              "Logitech K850"
+              "Varmilo VD-1 Keyboard"
+            ];
+          };
         }
       ];
     };
