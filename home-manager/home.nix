@@ -58,7 +58,7 @@
   };
 
   services.xremap = {
-    enable = true;
+    enable = false;
     withHypr = true;
     config = {
       modmap = [
