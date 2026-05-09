@@ -1,6 +1,3 @@
-# Git: full config + delta pager via GIT_CONFIG_GLOBAL env var.
-# Uses wrappers.lib.wrapPackage (no pre-built git wrapper module needed).
-# Delta is referenced by absolute store path — not added to user PATH.
 {inputs, ...}: {
   perSystem = {pkgs, ...}: let
     deltaConfig = pkgs.writeText "delta.gitconfig" ''
@@ -104,8 +101,6 @@
     packages.git = inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.git;
-      # GIT_CONFIG_GLOBAL points git at our store-path config.
-      # `git config --global` writes will fail (read-only store) — acceptable.
       env.GIT_CONFIG_GLOBAL = gitConfig;
     };
   };

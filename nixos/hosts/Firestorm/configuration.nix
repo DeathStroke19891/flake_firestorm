@@ -19,8 +19,8 @@
     imports = [
       self.nixosModules.base
 
-      self.nixosModules.general  # imports: extra_hjem, gtk, nix; user definition
-      self.nixosModules.desktop  # imports: gtk, audio, bluetooth, sddm; niri + locale + hardware
+      self.nixosModules.general
+      self.nixosModules.desktop
 
       self.nixosModules.docker
       self.nixosModules.input

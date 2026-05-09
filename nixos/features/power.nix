@@ -1,4 +1,3 @@
-# Power management: auto-cpufreq for battery/performance tuning.
 {inputs, ...}: {
   flake.nixosModules.power = {pkgs, ...}: {
     imports = [inputs.auto-cpufreq.nixosModules.default];

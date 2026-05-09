@@ -1,4 +1,3 @@
-# Docker (rootless) and Podman virtualisation.
 {...}: {
   flake.nixosModules.docker = {...}: {
     virtualisation.docker = {

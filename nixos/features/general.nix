@@ -113,7 +113,6 @@
         enchant
         yazi
 
-        # ── Wrapped programs ──────────────────────────────────────────────────
         self.packages.${system}.zsh
         self.packages.${system}.git
         self.packages.${system}.sioyek

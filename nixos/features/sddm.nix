@@ -1,4 +1,3 @@
-# SilentSDDM display manager with custom theme and profile picture.
 {inputs, ...}: {
   flake.nixosModules.sddm = {pkgs, ...}: {
     imports = [

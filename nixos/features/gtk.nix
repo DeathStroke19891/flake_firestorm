@@ -1,5 +1,3 @@
-# GTK theming: Gruvbox-Green-Dark theme + Gruvbox-Plus-Dark icons.
-# Mirrors vimjoyer's gtk.nix exactly.
 {
   flake.nixosModules.gtk = {
     pkgs,

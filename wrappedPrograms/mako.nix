@@ -1,6 +1,3 @@
-# Mako notification daemon: settings inlined directly in perSystem
-# (no theme-dependent values, no need for wrappersModules indirection).
-# Uses Lassulus wrapperModules.mako which generates --config=<store-path>.
 {inputs, ...}: {
   perSystem = {pkgs, ...}: {
     packages.mako = (inputs.wrappers.wrapperModules.mako.apply {

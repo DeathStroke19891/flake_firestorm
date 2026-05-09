@@ -1,23 +1,21 @@
-# Gruvbox dark base16 color theme (from vimjoyer/nixconf).
-# Exposed as flake.theme and flake.themeNoHash for use in NixOS modules.
 let
   theme = {
-    base00 = "#242424"; # bg
-    base01 = "#3c3836"; # dark
+    base00 = "#242424";
+    base01 = "#3c3836";
     base02 = "#504945";
     base03 = "#665c54";
     base04 = "#bdae93";
     base05 = "#d5c4a1";
-    base06 = "#ebdbb2"; # fg
-    base07 = "#fbf1c7"; # light fg
-    base08 = "#fb4934"; # red
-    base09 = "#fe8019"; # orange
-    base0A = "#fabd2f"; # yellow
-    base0B = "#b8bb26"; # green
-    base0C = "#8ec07c"; # cyan
-    base0D = "#7daea3"; # blue
-    base0E = "#e089a1"; # magenta
-    base0F = "#f28534"; # orange alt
+    base06 = "#ebdbb2";
+    base07 = "#fbf1c7";
+    base08 = "#fb4934";
+    base09 = "#fe8019";
+    base0A = "#fabd2f";
+    base0B = "#b8bb26";
+    base0C = "#8ec07c";
+    base0D = "#7daea3";
+    base0E = "#e089a1";
+    base0F = "#f28534";
   };
 
   stripHash = str:

@@ -1,4 +1,3 @@
-# Keyboard remapping via xremap (wlroots-compatible, works with niri).
 {inputs, ...}: {
   flake.nixosModules.input = {config, ...}: {
     imports = [inputs.xremap-flake.nixosModules.default];

@@ -1,4 +1,3 @@
-# Bluetooth support with Blueman GUI manager.
 {...}: {
   flake.nixosModules.bluetooth = {...}: {
     hardware.bluetooth.enable = true;

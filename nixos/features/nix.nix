@@ -1,4 +1,3 @@
-# Nix daemon settings: flakes, registry pinning, binary caches, direnv, nix-index.
 {inputs, ...}: {
   flake.nixosModules.nix = {
     lib,
@@ -20,17 +19,13 @@
     in {
       settings = {
         experimental-features = "nix-command flakes";
-        # Disable global registry in favour of per-flake pinned registry below
         flake-registry = "";
-        # Workaround for https://github.com/NixOS/nix/issues/9574
         nix-path = config.nix.nixPath;
         substituters = [
           "https://cache.nixos.org/"
         ];
       };
-      # Keep channels disabled; inputs provide all packages
       channel.enable = false;
-      # Pin registry and nix path to flake inputs for reproducibility
       registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
       nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };

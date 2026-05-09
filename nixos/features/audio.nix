@@ -1,4 +1,3 @@
-# PipeWire audio with ALSA and PulseAudio compatibility.
 {...}: {
   flake.nixosModules.audio = {pkgs, ...}: {
     security.rtkit.enable = true;

@@ -1,7 +1,3 @@
-# Sioyek PDF viewer: config via XDG_CONFIG_HOME pointing at a nix-store directory.
-# No pre-built Lassulus/BirdeeHub wrapper module exists for sioyek, so we use
-# wrappers.lib.wrapPackage directly.
-# XDG_CONFIG_HOME is inherited by child processes of sioyek — acceptable for a PDF viewer.
 {inputs, ...}: {
   perSystem = {pkgs, ...}: let
     sioyekPrefs = pkgs.writeText "prefs_user.config" ''
@@ -64,7 +60,6 @@
       toggle_synctex <f8>
     '';
 
-    # Build a directory: $out/sioyek/{prefs_user.config,keys_user.config}
     sioyekXdg = pkgs.runCommand "sioyek-xdg" {} ''
       mkdir -p $out/sioyek
       ln -s ${sioyekPrefs} $out/sioyek/prefs_user.config
