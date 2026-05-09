@@ -27,9 +27,8 @@
         };
       };
 
-      # spawn-at-startup = [
-      #   "${config.pkgs.awww}/bin/awww-daemon"
-      # ];
+      spawn-at-startup = [
+      ];
 
       binds = {
         "Mod+Return".spawn = "alacritty";
