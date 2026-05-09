@@ -27,7 +27,7 @@ in {
 
     plugins = [
       # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
     ];
 
     settings = {
