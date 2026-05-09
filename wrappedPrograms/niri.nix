@@ -34,7 +34,7 @@
       binds = {
         "Mod+Return".spawn = "alacritty";
         "Mod+Space".spawn = "fuzzel";
-        "Mod+Q".close-window = _: {};
+        "Mod+C".close-window = _: {};
         "Mod+Shift+Q".quit = _: {};
 
         "Mod+Left".focus-column-left = _: {};
