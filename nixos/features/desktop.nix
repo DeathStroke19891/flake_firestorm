@@ -14,7 +14,7 @@
 
     environment.systemPackages = with pkgs; [
       fuzzel
-      swww
+      awww
       wl-clipboard
       brightnessctl
       pulsemixer

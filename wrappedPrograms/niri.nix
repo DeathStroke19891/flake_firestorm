@@ -28,7 +28,7 @@
       };
 
       spawn-at-startup = [
-        "${config.pkgs.swww}/bin/swww-daemon"
+        "${config.pkgs.awww}/bin/awww-daemon"
       ];
 
       binds = {
