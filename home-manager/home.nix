@@ -233,6 +233,7 @@
     # neo4j
 
     obsidian
+    obs-studio
     # logseq
 
     enchant
