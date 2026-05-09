@@ -181,7 +181,7 @@ in {
 
       dwindle = {
         # no_gaps_when_only = false;
-        pseudotile = true;
+        # pseudotile = true;
         preserve_split = true;
         force_split = 3;
       };
