@@ -1,25 +1,74 @@
-# Niri compositor: system enable + user KDL config via hjem.
-# Keybinds use Mod (Super). Adjust spawn commands to taste.
-{...}: {
-  flake.nixosModules.niri = {
+{self, ...}: {
+  flake.nixosModules.desktop = {
     config,
     pkgs,
     ...
   }: let
+    selfpkgs = self.packages."${pkgs.system}";
     user = config.preferences.user.name;
   in {
+    imports = [
+      self.nixosModules.gtk
+      self.nixosModules.audio
+      self.nixosModules.bluetooth
+      self.nixosModules.sddm
+    ];
+
     programs.niri.enable = true;
 
-    # XDG desktop portal — provides screenshare, file-picker, etc.
+    environment.systemPackages = with pkgs; [
+      fuzzel
+      swww
+      wl-clipboard
+      libnotify
+      brightnessctl
+      pulsemixer
+      fastfetch
+      viewnior
+      selfpkgs.alacritty
+      selfpkgs.mako
+    ];
+
+    fonts.packages = with pkgs; [
+      liberation_ttf
+      noto-fonts-color-emoji
+      nerd-fonts.fira-code
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.monaspace
+      nerd-fonts.mononoki
+    ];
+
+    fonts.fontconfig.defaultFonts = {
+      monospace = ["MonaspiceKr Nerd Font"];
+    };
+
+    time.timeZone = "Asia/Kolkata";
+
+    i18n.defaultLocale = "en_US.UTF-8";
+    i18n.extraLocaleSettings = {
+      LC_ADDRESS = "en_IN";
+      LC_IDENTIFICATION = "en_IN";
+      LC_MEASUREMENT = "en_IN";
+      LC_MONETARY = "en_IN";
+      LC_NAME = "en_IN";
+      LC_NUMERIC = "en_IN";
+      LC_PAPER = "en_IN";
+      LC_TELEPHONE = "en_IN";
+      LC_TIME = "en_IN";
+    };
+
+    services.upower.enable = true;
+    security.polkit.enable = true;
+
+    hardware = {
+      uinput.enable = true;
+    };
+
     xdg.portal = {
       enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-gtk];
       config.common.default = "*";
     };
-
-    security.polkit.enable = true;
-    # Allow swaylock to authenticate via PAM
-    security.pam.services.swaylock = {};
 
     hjem.users.${user}.xdg.config.files."niri/config.kdl".text = ''
       input {

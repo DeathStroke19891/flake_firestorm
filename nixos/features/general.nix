@@ -1,41 +1,35 @@
-# Common system-wide settings: locale, timezone, shell, keyboard, keyring.
-{...}: {
-  flake.nixosModules.general = {pkgs, ...}: {
-    time.timeZone = "Asia/Kolkata";
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.general = {
+    config,
+    pkgs,
+    ...
+  }: let
+    user = config.preferences.user.name;
+    system = pkgs.stdenv.hostPlatform.system;
+  in {
+    imports = [
+      self.nixosModules.extra_hjem
+      self.nixosModules.gtk
+      self.nixosModules.nix
+    ];
 
-    i18n.defaultLocale = "en_US.UTF-8";
-    i18n.extraLocaleSettings = {
-      LC_ADDRESS = "en_IN";
-      LC_IDENTIFICATION = "en_IN";
-      LC_MEASUREMENT = "en_IN";
-      LC_MONETARY = "en_IN";
-      LC_NAME = "en_IN";
-      LC_NUMERIC = "en_IN";
-      LC_PAPER = "en_IN";
-      LC_TELEPHONE = "en_IN";
-      LC_TIME = "en_IN";
-    };
-
-    # Make zsh completions available system-wide
     environment.pathsToLink = ["/share/zsh"];
     programs.zsh.enable = true;
 
     services.xserver.xkb.layout = "us";
-    hardware.uinput.enable = true;
     services.gnome.gnome-keyring.enable = true;
     services.atd.enable = true;
     services.openssh.enable = true;
 
-    fonts.packages = with pkgs; [liberation_ttf];
-
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     environment.systemPackages = with pkgs; [
       vim
       wget
-      libnotify
       ntfs3g
       ntfsprogs
       xdg-utils
@@ -44,5 +38,86 @@
       wireplumber
       cachix
     ];
+
+    users.users.${user} = {
+      isNormalUser = true;
+      description = "Sridhar D Kedlaya";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "video"
+        "audio"
+        "input"
+        "uinput"
+        "power"
+        "docker"
+        "libvirtd"
+        "jackaudio"
+        "kvm"
+        "adbusers"
+      ];
+      shell = pkgs.zsh;
+      packages = with pkgs; [
+        alejandra
+        neovim
+
+        firefox
+        inputs.zen-browser.packages.${system}.default
+
+        emacs-lsp-booster
+        ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [epkgs.vterm]))
+
+        ripgrep
+        fd
+        bat
+        eza
+        zoxide
+        fzf
+        direnv
+        jujutsu
+
+        mpv
+        obs-studio
+        spotify
+
+        pass-wayland
+        gnupg
+        pinentry-qt
+
+        hledger
+        hledger-ui
+        obsidian
+        thunderbird
+        libqalculate
+        transmission_4-qt
+
+        vscode
+        nodejs_22
+        elan
+        processing
+        godot
+        blender
+
+        bottom
+        jq
+        socat
+        hck
+        tlrc
+        sl
+        copyq
+        element-desktop
+        mgba
+        ueberzugpp
+        pandoc
+        texliveFull
+        enchant
+        yazi
+
+        # ── Wrapped programs ──────────────────────────────────────────────────
+        self.packages.${system}.zsh
+        self.packages.${system}.git
+        self.packages.${system}.sioyek
+      ];
+    };
   };
 }
