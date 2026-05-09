@@ -18,7 +18,8 @@
     };
 
     security.polkit.enable = true;
-    programs.swaylock.enable = true;
+    # Allow swaylock to authenticate via PAM
+    security.pam.services.swaylock = {};
 
     hjem.users.${user}.xdg.config.files."niri/config.kdl".text = ''
       input {
