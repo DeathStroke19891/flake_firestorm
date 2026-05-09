@@ -5,15 +5,15 @@
 }: {
   flake.wrappersModules.niri = {config, ...}: {
     config.settings = {
-      prefer-no-csd = null;
+      prefer-no-csd = _: {};
 
       input = {
         keyboard.xkb = {
           layout = "us";
         };
         touchpad = {
-          tap = null;
-          natural-scroll = null;
+          tap = _: {};
+          natural-scroll = _: {};
         };
       };
 
@@ -34,18 +34,18 @@
       binds = {
         "Mod+Return".spawn = "alacritty";
         "Mod+Space".spawn = "fuzzel";
-        "Mod+Q".close-window = null;
-        "Mod+Shift+Q".quit = null;
+        "Mod+Q".close-window = _: {};
+        "Mod+Shift+Q".quit = _: {};
 
-        "Mod+Left".focus-column-left = null;
-        "Mod+Right".focus-column-right = null;
-        "Mod+Up".focus-window-up = null;
-        "Mod+Down".focus-window-down = null;
+        "Mod+Left".focus-column-left = _: {};
+        "Mod+Right".focus-column-right = _: {};
+        "Mod+Up".focus-window-up = _: {};
+        "Mod+Down".focus-window-down = _: {};
 
-        "Mod+Shift+Left".move-column-left = null;
-        "Mod+Shift+Right".move-column-right = null;
-        "Mod+Shift+Up".move-window-up = null;
-        "Mod+Shift+Down".move-window-down = null;
+        "Mod+Shift+Left".move-column-left = _: {};
+        "Mod+Shift+Right".move-column-right = _: {};
+        "Mod+Shift+Up".move-window-up = _: {};
+        "Mod+Shift+Down".move-window-down = _: {};
 
         "Mod+1".focus-workspace = 1;
         "Mod+2".focus-workspace = 2;
@@ -59,12 +59,12 @@
         "Mod+Shift+4".move-window-to-workspace = 4;
         "Mod+Shift+5".move-window-to-workspace = 5;
 
-        "Mod+F".maximize-column = null;
-        "Mod+Shift+F".fullscreen-window = null;
+        "Mod+F".maximize-column = _: {};
+        "Mod+Shift+F".fullscreen-window = _: {};
 
-        "Print".screenshot = null;
-        "Ctrl+Print".screenshot-screen = null;
-        "Alt+Print".screenshot-window = null;
+        "Print".screenshot = _: {};
+        "Ctrl+Print".screenshot-screen = _: {};
+        "Alt+Print".screenshot-window = _: {};
 
         "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
         "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
