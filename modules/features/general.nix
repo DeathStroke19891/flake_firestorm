@@ -111,7 +111,7 @@
         pandoc
         texliveFull
         enchant
-        yazi
+        nemo
 
         self.packages.${system}.zsh
         self.packages.${system}.git

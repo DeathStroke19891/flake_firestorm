@@ -72,9 +72,10 @@
   };
 
   perSystem = {pkgs, ...}: {
-    packages.zsh = (inputs.wrappers.wrapperModules.zsh.apply {
-      inherit pkgs;
-      imports = [self.wrappersModules.zsh];
-    }).wrapper;
+    packages.zsh =
+      (inputs.wrappers.wrapperModules.zsh.apply {
+        inherit pkgs;
+        imports = [self.wrappersModules.zsh];
+      }).wrapper;
   };
 }

@@ -12,7 +12,7 @@
       "capsuleColorKey": "secondary",
       "widgetSpacing": 10,
       "contentPadding": 20,
-      "fontScale": 0.9,
+      "fontScale": 0.8,
       "enableExclusionZoneInset": true,
       "backgroundOpacity": 0.93,
       "useSeparateOpacity": true,
@@ -22,7 +22,7 @@
       "frameRadius": 12,
       "outerCorners": true,
       "hideOnOverview": false,
-      "displayMode": "non_exclusive",
+      "displayMode": "always_visible",
       "autoHideDelay": 500,
       "autoShowDelay": 150,
       "showOnWorkspaceSwitch": true,
@@ -693,7 +693,7 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "eDP-1": "/home/parzival/pictures/wallpapers/rain.jpg"
+      "eDP-1": "/home/parzival/pictures/wallpapers/mot9.jpg"
     },
     "desktopWidgetsEditMode": false,
     "display": {

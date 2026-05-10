@@ -3,8 +3,13 @@
   self,
   ...
 }: {
-  flake.wrappersModules.niri = {config, lib, pkgs, ...}: {
-    config.settings = let 
+  flake.wrappersModules.niri = {
+    config,
+    lib,
+    pkgs,
+    ...
+  }: {
+    config.settings = let
       noctaliaExe = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.noctalia-shell;
     in {
       prefer-no-csd = _: {};
@@ -20,6 +25,7 @@
         mouse = {
           accel-profile = "adaptive";
         };
+        mod-key = "alt";
       };
 
       layout = {
@@ -36,6 +42,18 @@
         noctaliaExe
       ];
 
+      layer-rules = [
+      {
+        matches = [
+        {
+          namespace = "^noctalia-overview-eDP-1$";
+        }
+        ];
+
+        place-within-backdrop = true;
+      }
+      ];
+
       binds = {
         "Mod+Return".spawn-sh = lib.getExe pkgs.alacritty;
 
@@ -45,7 +63,7 @@
         "Mod+Shift+F".toggle-window-floating = _: {};
         "Mod+C".center-column = _: {};
         "Mod+Shift+Q".quit = _: {};
-        
+
         "Mod+H".focus-column-left = _: {};
         "Mod+L".focus-column-right = _: {};
         "Mod+K".focus-window-up = _: {};
@@ -55,6 +73,11 @@
         "Mod+Right".focus-column-right = _: {};
         "Mod+Up".focus-window-up = _: {};
         "Mod+Down".focus-window-down = _: {};
+
+        "Mod+Shift+H".move-column-left = _: {};
+        "Mod+Shift+L".move-column-right = _: {};
+        "Mod+Shift+K".move-window-up = _: {};
+        "Mod+Shift+J".move-window-down = _: {};
 
         "Mod+Shift+Left".move-column-left = _: {};
         "Mod+Shift+Right".move-column-right = _: {};
@@ -91,22 +114,35 @@
         "Mod+Shift+8".move-window-to-workspace = 8;
         "Mod+Shift+9".move-window-to-workspace = 9;
 
-        "Mod+Space".spawn-sh = "${noctaliaExe} ipc call launcher toggle"; 
-        "Mod+S".spawn-sh = "${noctaliaExe} ipc call controlCenter toggle"; 
+        "Mod+Space".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
+        "Mod+S".spawn-sh = "${noctaliaExe} ipc call controlCenter toggle";
         "Mod+Comma".spawn-sh = "${noctaliaExe} ipc call settings toggle";
 
-        "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
-        "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
-        "XF86AudioMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioRaiseVolume".spawn-sh = "${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
+        "XF86AudioLowerVolume".spawn-sh = "${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+        "XF86AudioMute".spawn-sh = "${lib.getExe' pkgs.wireplumber "wpctl"}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
 
         "Print".screenshot = _: {};
         "Ctrl+Print".screenshot-screen = _: {};
         "Alt+Print".screenshot-window = _: {};
 
+        # "WheelScrollRight".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
+        # "WheelScrollLeft".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+        "MouseForward".focus-column-right = _: {};
+        "MouseBack".focus-column-left = _: {};
+        "Mod+Ctrl+Tab".toggle-overview = _: {};
+
+        "XF86AudioPlay".spawn-sh = "${lib.getExe pkgs.playerctl} play-pause";
+        "XF86AudioPause".spawn-sh = "${lib.getExe pkgs.playerctl} play-pause";
+        "XF86AudioNext".spawn-sh = "${lib.getExe pkgs.playerctl} next";
+        "XF86AudioPrev".spawn-sh = "${lib.getExe pkgs.playerctl} previous";
 
         "XF86MonBrightnessUp".spawn-sh = "brightnessctl set 10%+";
         "XF86MonBrightnessDown".spawn-sh = "brightnessctl set 10%-";
       };
+
+      xwayland-satellite.path = lib.getExe config.pkgs.xwayland-satellite;
+
     };
   };
 

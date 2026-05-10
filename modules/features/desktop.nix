@@ -13,14 +13,12 @@
     programs.niri.package = selfpkgs.niri;
 
     environment.systemPackages = with pkgs; [
-      fuzzel
       awww
       wl-clipboard
       brightnessctl
       pulsemixer
       fastfetch
       viewnior
-      selfpkgs.alacritty
     ];
 
     fonts.packages = with pkgs; [

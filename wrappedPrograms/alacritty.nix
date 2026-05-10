@@ -25,7 +25,7 @@
       };
 
       window = {
-        opacity = 0.4;
+        opacity = 0.8;
         blur = true;
         padding = {
           x = 0;
@@ -40,10 +40,11 @@
     self',
     ...
   }: {
-    packages.alacritty = (inputs.wrappers.wrapperModules.alacritty.apply {
-      inherit pkgs;
-      imports = [self.wrappersModules.alacritty];
-      settings.terminal.shell.program = "${self'.packages.zsh}/bin/zsh";
-    }).wrapper;
+    packages.alacritty =
+      (inputs.wrappers.wrapperModules.alacritty.apply {
+        inherit pkgs;
+        imports = [self.wrappersModules.alacritty];
+        settings.terminal.shell.program = "${self'.packages.zsh}/bin/zsh";
+      }).wrapper;
   };
 }
