@@ -17,7 +17,6 @@
     };
 
     services.upower.enable = true;
-
-    environment.systemPackages = [pkgs.powertop];
+    services.thermald.enable = true;
   };
 }

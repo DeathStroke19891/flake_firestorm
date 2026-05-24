@@ -1,5 +1,5 @@
 {...}: {
-  flake.nixosModules.hardwareFirestorm = {
+  flake.hardwareModules.Firestorm = {
     config,
     lib,
     modulesPath,

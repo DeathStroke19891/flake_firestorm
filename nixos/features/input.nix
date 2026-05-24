@@ -4,7 +4,7 @@
 
     services.xremap = {
       enable = true;
-      withWlroots = true;
+      withNiri = true;
       userName = config.preferences.user.name;
       config = {
         modmap = [

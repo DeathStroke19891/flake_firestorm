@@ -7,15 +7,31 @@
     config,
     pkgs,
     ...
-  }: let
-    user = config.preferences.user.name;
-    system = pkgs.stdenv.hostPlatform.system;
-  in {
+  }: {
     imports = [
       self.nixosModules.extra_hjem
       self.nixosModules.gtk
       self.nixosModules.nix
     ];
+
+
+    users.users.${config.preferences.user.name} = {
+      isNormalUser = true;
+      description = "${config.preferences.user.name}'s account";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "video"
+        "audio"
+        "input"
+        "libvirtd"
+        "kvm"
+        "adbusers"
+      ];
+      shell = self.packages.${pkgs.stdenv.hostPlatform.system}.environment;
+    };
+  };
+}
 
     environment.pathsToLink = ["/share/zsh"];
     programs.zsh.enable = true;
@@ -24,8 +40,17 @@
     services.gnome.gnome-keyring.enable = true;
     services.atd.enable = true;
     services.openssh.enable = true;
+    services.emacs = {
+      enable = true;
+      package = pkgs.emacs-pgtk;
+    };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+    systemd.user.services.emacs.environment = {
+      LIBRARY_PATH =
+        "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.glibc}/lib";
+    };
 
     environment.systemPackages = with pkgs; [
       vim
@@ -37,26 +62,10 @@
       dbus
       wireplumber
       cachix
+      gcc
+      binutils
     ];
 
-    users.users.${user} = {
-      isNormalUser = true;
-      description = "Sridhar D Kedlaya";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "video"
-        "audio"
-        "input"
-        "uinput"
-        "power"
-        "docker"
-        "libvirtd"
-        "jackaudio"
-        "kvm"
-        "adbusers"
-      ];
-      shell = pkgs.zsh;
       packages = with pkgs; [
         alejandra
         neovim
@@ -112,11 +121,10 @@
         texliveFull
         enchant
         nemo
+        nyxt
 
         self.packages.${system}.zsh
         self.packages.${system}.git
         self.packages.${system}.sioyek
       ];
     };
-  };
-}

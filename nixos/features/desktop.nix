@@ -1,16 +1,18 @@
 {self, ...}: {
   flake.nixosModules.desktop = {pkgs, ...}: let
-    selfpkgs = self.packages."${pkgs.system}";
+    selfpkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     imports = [
       self.nixosModules.gtk
-      self.nixosModules.audio
+      self.nixosModules.pipewire
       self.nixosModules.bluetooth
       self.nixosModules.sddm
     ];
 
     programs.niri.enable = true;
     programs.niri.package = selfpkgs.niri;
+
+    preferences.autostart = [selfpkgs.noctalia-shell];
 
     environment.systemPackages = with pkgs; [
       awww
@@ -31,7 +33,7 @@
     ];
 
     fonts.fontconfig.defaultFonts = {
-      monospace = ["MonaspiceKr Nerd Font"];
+      monospace = ["MonaspiceNe Nerd Font"];
     };
 
     time.timeZone = "Asia/Kolkata";
@@ -49,15 +51,7 @@
       LC_TIME = "en_IN";
     };
 
-    services.upower.enable = true;
     security.polkit.enable = true;
-
     hardware.uinput.enable = true;
-
-    xdg.portal = {
-      enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
-      config.common.default = "*";
-    };
   };
 }

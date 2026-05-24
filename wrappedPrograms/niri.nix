@@ -30,11 +30,21 @@
 
       layout = {
         gaps = 25;
-        default-column-width.proportion = 0.5;
+        default-column-width.proportion = 2. / 3.;
+        preset-column-widths = [
+        { proportion = 1. / 3.; }
+        { proportion = 1. / 2.; }
+        { proportion = 2. / 3.; }
+        ];
+        center-focused-column = "always";
         focus-ring = {
           width = 4;
           active-color = "#7daea3";
           inactive-color = "#504945";
+        };
+        struts = {
+          left = 32;
+          right = 32;
         };
       };
 
@@ -131,6 +141,8 @@
         "MouseForward".focus-column-right = _: {};
         "MouseBack".focus-column-left = _: {};
         "Mod+Ctrl+Tab".toggle-overview = _: {};
+
+        "Mod+Ctrl+R".switch-preset-column-width = _: {};
 
         "XF86AudioPlay".spawn-sh = "${lib.getExe pkgs.playerctl} play-pause";
         "XF86AudioPause".spawn-sh = "${lib.getExe pkgs.playerctl} play-pause";
