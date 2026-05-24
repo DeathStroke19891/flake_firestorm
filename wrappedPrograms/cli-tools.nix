@@ -12,10 +12,10 @@
         jq
         socat
         bottom
-      hck
-      tlrc
-      sl
-      ueberzugpp
+        hck
+        tlrc
+        sl
+        ueberzugpp
       ];
     };
   };

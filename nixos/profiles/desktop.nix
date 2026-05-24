@@ -1,5 +1,9 @@
 {self, ...}: {
-  flake.nixosModules.profile-desktop = {config, pkgs, ...}: {
+  flake.nixosModules.profile-desktop = {
+    config,
+    pkgs,
+    ...
+  }: {
     imports = [
       self.nixosModules.gtk
       self.nixosModules.pipewire

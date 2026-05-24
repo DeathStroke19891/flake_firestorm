@@ -11,8 +11,7 @@
     };
 
     systemd.user.services.emacs.environment = {
-      LIBRARY_PATH =
-        "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.glibc}/lib";
+      LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.glibc}/lib";
     };
 
     environment.systemPackages = with pkgs; [

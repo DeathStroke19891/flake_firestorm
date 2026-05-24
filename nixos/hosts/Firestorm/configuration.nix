@@ -11,7 +11,11 @@
     modules = [self.nixosModules.hostFirestorm];
   };
 
-  flake.nixosModules.hostFirestorm = {config, pkgs, ...}: {
+  flake.nixosModules.hostFirestorm = {
+    config,
+    pkgs,
+    ...
+  }: {
     imports = [
       self.nixosModules.base
 

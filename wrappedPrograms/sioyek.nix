@@ -1,5 +1,13 @@
-{inputs, self, ...}: {
-  flake.wrappersModules.sioyek = {config, lib, ...}: let
+{
+  inputs,
+  self,
+  ...
+}: {
+  flake.wrappersModules.sioyek = {
+    config,
+    lib,
+    ...
+  }: let
     pkgs = config.pkgs;
 
     sioyekPrefs = pkgs.writeText "prefs_user.config" ''

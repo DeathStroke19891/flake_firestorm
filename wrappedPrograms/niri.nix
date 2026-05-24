@@ -32,9 +32,9 @@
         gaps = 25;
         default-column-width.proportion = 2. / 3.;
         preset-column-widths = [
-        { proportion = 1. / 3.; }
-        { proportion = 1. / 2.; }
-        { proportion = 2. / 3.; }
+          {proportion = 1. / 3.;}
+          {proportion = 1. / 2.;}
+          {proportion = 2. / 3.;}
         ];
         center-focused-column = "always";
         focus-ring = {
@@ -53,15 +53,15 @@
       ];
 
       layer-rules = [
-      {
-        matches = [
         {
-          namespace = "^noctalia-overview-eDP-1$";
-        }
-        ];
+          matches = [
+            {
+              namespace = "^noctalia-overview-eDP-1$";
+            }
+          ];
 
-        place-within-backdrop = true;
-      }
+          place-within-backdrop = true;
+        }
       ];
 
       binds = {
@@ -154,7 +154,6 @@
       };
 
       xwayland-satellite.path = lib.getExe config.pkgs.xwayland-satellite;
-
     };
   };
 

@@ -1,4 +1,8 @@
-{inputs, self, ...}: {
+{
+  inputs,
+  self,
+  ...
+}: {
   flake.wrappersModules.git = {config, ...}: let
     deltaConfig = config.pkgs.writeText "delta.gitconfig" ''
       [core]

@@ -1,7 +1,4 @@
-{
-  self,
-  ...
-}: {
+{self, ...}: {
   perSystem = {
     pkgs,
     self',
@@ -14,8 +11,6 @@
       }
 
       # Aliases
-      alias ll = eza -l
-      alias ls = eza
       alias cat = bat
       alias vim = nvim
       alias update = sudo nixos-rebuild switch --flake ~/flake_firestorm/
@@ -30,20 +25,21 @@
         | prepend $"($env.HOME)/Android/Sdk/platform-tools")
     '';
   in {
-    packages.environment = pkgs.runCommand "nu-environment" {
-      nativeBuildInputs = [pkgs.makeWrapper];
-      meta.mainProgram = "nu";
-      passthru.shellPath = "/bin/nu";
-    } ''
-      mkdir -p $out/bin
-      makeWrapper ${lib.getExe pkgs.nushell} $out/bin/nu \
-        --add-flags "--config ${nuConfig}" \
-        --add-flags "--env-config ${nuEnv}" \
-        --prefix PATH : ${lib.makeBinPath [
+    packages.environment =
+      pkgs.runCommand "nu-environment" {
+        nativeBuildInputs = [pkgs.makeWrapper];
+        meta.mainProgram = "nu";
+        passthru.shellPath = "/bin/nu";
+      } ''
+        mkdir -p $out/bin
+        makeWrapper ${lib.getExe pkgs.nushell} $out/bin/nu \
+          --add-flags "--config ${nuConfig}" \
+          --add-flags "--env-config ${nuEnv}" \
+          --prefix PATH : ${lib.makeBinPath [
           self'.packages.cli-tools
           self'.packages.dev-tools
           self'.packages.git
         ]}
-    '';
+      '';
   };
 }
