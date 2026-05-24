@@ -30,8 +30,6 @@
 
     xremap-flake.url = "github:xremap/nix-flake";
 
-    wrappers.url = "github:Lassulus/wrappers";
-
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
 

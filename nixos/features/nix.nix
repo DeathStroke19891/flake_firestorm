@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{inputs, ...}: {
   flake.nixosModules.nix = {
     lib,
     config,
@@ -37,7 +37,7 @@
       channel.enable = false;
 
       registry =
-        lib.mapAttrs (_: flake: { inherit flake; })
+        lib.mapAttrs (_: flake: {inherit flake;})
         flakeInputs;
 
       nixPath =
@@ -48,18 +48,9 @@
 
     programs.direnv = {
       enable = true;
-
       silent = false;
-
       loadInNixShell = true;
-
       nix-direnv.enable = true;
     };
-
-    environment.systemPackages = with pkgs; [
-      alejandra
-      statix
-      nixd
-    ];
   };
 }

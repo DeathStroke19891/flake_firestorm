@@ -11,19 +11,14 @@
     modules = [self.nixosModules.hostFirestorm];
   };
 
-  flake.nixosModules.hostFirestorm = {
-    config,
-    pkgs,
-    ...
-  }: {
+  flake.nixosModules.hostFirestorm = {pkgs, ...}: {
     imports = [
       self.nixosModules.base
+      self.nixosModules.user-account
 
-      self.nixosModules.general
-      self.nixosModules.desktop
-
-      self.nixosModules.input
-      self.nixosModules.power
+      self.nixosModules.profile-desktop
+      self.nixosModules.profile-laptop
+      self.nixosModules.profile-development
 
       self.hardwareModules.Firestorm
     ];
@@ -32,28 +27,16 @@
 
     system.stateVersion = "23.11";
 
-    services = {
-      udisks2.enable = true;
-    };
-
     boot = {
-
       loader = {
         systemd-boot.enable = true;
-
         efi = {
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
         };
       };
-
       supportedFilesystems.ntfs = true;
-
-      kernelParams = [
-        "quiet"
-        "splash"
-      ];
-
+      kernelParams = ["quiet" "splash"];
       plymouth.enable = true;
     };
 
@@ -64,30 +47,46 @@
       firewall.enable = true;
     };
 
+    services.udisks2.enable = true;
+
     virtualisation.libvirtd.enable = true;
     virtualisation.podman = {
       enable = true;
       dockerCompat = true;
-      defaultNetwork.settings = {
-        dns_enabled = true;
-      };
+      defaultNetwork.settings.dns_enabled = true;
     };
-
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    xdg.portal.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      android-tools
-      docker-compose 
-    ];
-
-    hardware.graphics.enable = true;
-    programs.niri.enable = true;
-
 
     programs.appimage.enable = true;
     programs.appimage.binfmt = true;
-
     programs.obs-studio.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      android-tools
+      docker-compose
+
+      firefox
+      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+      mpv
+      obs-studio
+      spotify
+
+      pass-wayland
+      gnupg
+      pinentry-qt
+
+      hledger
+      hledger-ui
+      obsidian
+      thunderbird
+      libqalculate
+      transmission_4-qt
+
+      copyq
+      element-desktop
+      mgba
+      nemo
+      nyxt
+    ];
   };
 }

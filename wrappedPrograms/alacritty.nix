@@ -40,11 +40,10 @@
     self',
     ...
   }: {
-    packages.alacritty =
-      (inputs.wrappers.wrapperModules.alacritty.apply {
-        inherit pkgs;
-        imports = [self.wrappersModules.alacritty];
-        settings.terminal.shell.program = "${self'.packages.zsh}/bin/zsh";
-      }).wrapper;
+    packages.alacritty = inputs.wrapper-modules.wrappers.alacritty.wrap {
+      inherit pkgs;
+      imports = [self.wrappersModules.alacritty];
+      settings.terminal.shell.program = "${self'.packages.zsh}/bin/zsh";
+    };
   };
 }

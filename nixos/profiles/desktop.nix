@@ -1,24 +1,19 @@
 {self, ...}: {
-  flake.nixosModules.desktop = {pkgs, ...}: let
-    selfpkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
-  in {
+  flake.nixosModules.profile-desktop = {pkgs, ...}: {
     imports = [
       self.nixosModules.gtk
       self.nixosModules.pipewire
       self.nixosModules.bluetooth
       self.nixosModules.sddm
+
+      self.nixosModules.app-alacritty
+      self.nixosModules.app-niri
+      self.nixosModules.app-noctalia
+      self.nixosModules.app-sioyek
     ];
-
-    programs.niri.enable = true;
-    programs.niri.package = selfpkgs.niri;
-
-    preferences.autostart = [selfpkgs.noctalia-shell];
 
     environment.systemPackages = with pkgs; [
       awww
-      wl-clipboard
-      brightnessctl
-      pulsemixer
       fastfetch
       viewnior
     ];
@@ -52,6 +47,5 @@
     };
 
     security.polkit.enable = true;
-    hardware.uinput.enable = true;
   };
 }

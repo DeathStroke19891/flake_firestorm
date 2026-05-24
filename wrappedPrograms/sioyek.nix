@@ -1,5 +1,7 @@
-{inputs, ...}: {
-  perSystem = {pkgs, ...}: let
+{inputs, self, ...}: {
+  flake.wrappersModules.sioyek = {config, lib, ...}: let
+    pkgs = config.pkgs;
+
     sioyekPrefs = pkgs.writeText "prefs_user.config" ''
       background_color  0.188 0.196 0.212
       dark_mode_background_color 0.074 0.082 0.0941
@@ -15,7 +17,7 @@
       should_use_multiple_monitors 1
 
       font_size 16
-      ui_font Clear Sans
+      ui_font MonaspiceNe Nerd Font
 
       status_bar_color  0.188 0.196 0.212
       status_bar_text_color 0.757 0.766 0.792
@@ -66,10 +68,14 @@
       ln -s ${sioyekKeys}  $out/sioyek/keys_user.config
     '';
   in {
-    packages.sioyek = inputs.wrappers.lib.wrapPackage {
+    config.package = pkgs.sioyek;
+    config.env.XDG_CONFIG_HOME = "${sioyekXdg}";
+  };
+
+  perSystem = {pkgs, ...}: {
+    packages.sioyek = inputs.wrapper-modules.lib.wrapPackage ({wlib, ...}: {
       inherit pkgs;
-      package = pkgs.sioyek;
-      env.XDG_CONFIG_HOME = sioyekXdg;
-    };
+      imports = [self.wrappersModules.sioyek];
+    });
   };
 }
