@@ -1,6 +1,10 @@
 {inputs, ...}: {
-  flake.nixosModules.power = {pkgs, ...}: {
+  flake.nixosModules.power = {config, pkgs, ...}: {
     imports = [inputs.auto-cpufreq.nixosModules.default];
+
+    users.users.${config.preferences.user.name}.extraGroups = [
+      "power"
+    ];
 
     services.auto-cpufreq = {
       enable = true;

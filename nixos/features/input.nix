@@ -2,6 +2,11 @@
   flake.nixosModules.input = {config, ...}: {
     imports = [inputs.xremap-flake.nixosModules.default];
 
+    users.users.${config.preferences.user.name}.extraGroups = [
+      "input"
+      "uinput"
+    ];
+
     services.xremap = {
       enable = true;
       withNiri = true;

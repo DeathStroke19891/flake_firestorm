@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.nixosModules.profile-desktop = {pkgs, ...}: {
+  flake.nixosModules.profile-desktop = {config, pkgs, ...}: {
     imports = [
       self.nixosModules.gtk
       self.nixosModules.pipewire
@@ -12,10 +12,21 @@
       self.nixosModules.app-sioyek
     ];
 
+    users.users.${config.preferences.user.name}.extraGroups = [
+      "video"
+    ];
+
+    services.xserver.xkb.layout = "us";
+    services.gnome.gnome-keyring.enable = true;
+
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
     environment.systemPackages = with pkgs; [
       awww
       fastfetch
       viewnior
+      xdg-utils
+      wireplumber
     ];
 
     fonts.packages = with pkgs; [

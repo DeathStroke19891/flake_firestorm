@@ -6,6 +6,7 @@
         alejandra
         statix
         nixd
+        direnv
         jujutsu
         neovim
       ];

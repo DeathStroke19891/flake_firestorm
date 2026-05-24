@@ -1,7 +1,8 @@
 {self, ...}: {
-  flake.nixosModules.user-account = {
+  flake.nixosModules.base = {
     config,
     pkgs,
+    lib,
     ...
   }: {
     imports = [
@@ -10,39 +11,26 @@
 
     users.users.${config.preferences.user.name} = {
       isNormalUser = true;
-      description = "${config.preferences.user.name}'s account";
+      description = lib.mkDefault "${config.preferences.user.name}'s account";
       extraGroups = [
-        "networkmanager"
         "wheel"
-        "video"
-        "audio"
-        "input"
-        "libvirtd"
-        "kvm"
-        "adbusers"
+        "networkmanager"
       ];
-      shell = self.packages.${pkgs.stdenv.hostPlatform.system}.environment;
+      shell = lib.mkDefault pkgs.zsh;
     };
 
     environment.pathsToLink = ["/share/zsh"];
     programs.zsh.enable = true;
 
-    services.gnome.gnome-keyring.enable = true;
-    services.atd.enable = true;
     services.openssh.enable = true;
+    services.atd.enable = true;
 
     environment.systemPackages = with pkgs; [
       vim
       wget
-      ntfs3g
-      ntfsprogs
-      xdg-utils
       psmisc
       dbus
-      wireplumber
       cachix
-      gcc
-      binutils
     ];
   };
 }

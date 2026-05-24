@@ -11,10 +11,9 @@
     modules = [self.nixosModules.hostFirestorm];
   };
 
-  flake.nixosModules.hostFirestorm = {pkgs, ...}: {
+  flake.nixosModules.hostFirestorm = {config, pkgs, ...}: {
     imports = [
       self.nixosModules.base
-      self.nixosModules.user-account
 
       self.nixosModules.profile-desktop
       self.nixosModules.profile-laptop
@@ -24,6 +23,17 @@
     ];
 
     preferences.user.name = "parzival";
+
+    users.users.${config.preferences.user.name} = {
+      description = "Sridhar D Kedlaya";
+      shell = self.packages.${pkgs.stdenv.hostPlatform.system}.environment;
+      extraGroups = [
+        "docker"
+        "libvirtd"
+        "kvm"
+        "adbusers"
+      ];
+    };
 
     system.stateVersion = "23.11";
 
@@ -63,6 +73,9 @@
     environment.systemPackages = with pkgs; [
       android-tools
       docker-compose
+
+      ntfs3g
+      ntfsprogs
 
       firefox
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

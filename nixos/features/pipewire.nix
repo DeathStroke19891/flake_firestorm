@@ -1,5 +1,14 @@
 {
-  flake.nixosModules.pipewire = {pkgs, ...}: {
+  flake.nixosModules.pipewire = {
+    config,
+    pkgs,
+    ...
+  }: {
+    users.users.${config.preferences.user.name}.extraGroups = [
+      "audio"
+      "jackaudio"
+    ];
+
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
@@ -9,7 +18,6 @@
       jack.enable = true;
 
       extraConfig = {
-        # cooler denoising
         pipewire."99-input-denoising" = {
           "context.modules" = [
             {
@@ -24,9 +32,6 @@
                       "name" = "DeepFilter Mono";
                       "plugin" = "${pkgs.deepfilternet}/lib/ladspa/libdeep_filter_ladspa.so";
                       "label" = "deep_filter_mono";
-                      # "control" = {
-                      #   "Attenuation Limit (dB)" = cfg.source.attenuation;
-                      # };
                     }
                   ];
                 };
