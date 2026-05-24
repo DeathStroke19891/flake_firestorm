@@ -29,12 +29,6 @@
       $env.PATH = ($env.PATH | split row (char esep)
         | prepend $"($env.HOME)/Android/Sdk/platform-tools")
     '';
-
-    nuXdg = pkgs.runCommand "nushell-config" {} ''
-      mkdir -p $out/nushell
-      ln -s ${nuConfig} $out/nushell/config.nu
-      ln -s ${nuEnv} $out/nushell/env.nu
-    '';
   in {
     packages.environment = pkgs.runCommand "nu-environment" {
       nativeBuildInputs = [pkgs.makeWrapper];
@@ -43,7 +37,8 @@
     } ''
       mkdir -p $out/bin
       makeWrapper ${lib.getExe pkgs.nushell} $out/bin/nu \
-        --set XDG_CONFIG_HOME "${nuXdg}" \
+        --add-flags "--config ${nuConfig}" \
+        --add-flags "--env-config ${nuEnv}" \
         --prefix PATH : ${lib.makeBinPath [
           self'.packages.cli-tools
           self'.packages.dev-tools
