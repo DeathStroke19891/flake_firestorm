@@ -16,11 +16,8 @@
         "wheel"
         "networkmanager"
       ];
-      shell = lib.mkDefault pkgs.zsh;
+      shell = lib.mkDefault pkgs.nushell;
     };
-
-    environment.pathsToLink = ["/share/zsh"];
-    programs.zsh.enable = true;
 
     services.openssh.enable = true;
     services.atd.enable = true;

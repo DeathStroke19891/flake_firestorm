@@ -43,7 +43,7 @@
     packages.alacritty = inputs.wrapper-modules.wrappers.alacritty.wrap {
       inherit pkgs;
       imports = [self.wrappersModules.alacritty];
-      settings.terminal.shell.program = "${self'.packages.zsh}/bin/zsh";
+      settings.terminal.shell.program = "${self'.packages.environment}/bin/nu";
     };
   };
 }
