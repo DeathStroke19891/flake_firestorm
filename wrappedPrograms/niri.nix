@@ -130,7 +130,7 @@
 
         "XF86AudioRaiseVolume".spawn-sh = "${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
         "XF86AudioLowerVolume".spawn-sh = "${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
-        "XF86AudioMute".spawn-sh = "${lib.getExe' pkgs.wireplumber "wpctl"}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioMute".spawn-sh = "${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SINK@ toggle";
 
         "Print".screenshot = _: {};
         "Ctrl+Print".screenshot-screen = _: {};
