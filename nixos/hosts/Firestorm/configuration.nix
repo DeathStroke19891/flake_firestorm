@@ -23,6 +23,14 @@
       self.nixosModules.profile-laptop
       self.nixosModules.profile-development
 
+      self.nixosModules.app-browsers
+      self.nixosModules.app-media
+      self.nixosModules.app-productivity
+      self.nixosModules.app-communication
+      self.nixosModules.app-utilities
+      self.nixosModules.app-gaming
+      self.nixosModules.app-creative
+
       self.hardwareModules.Firestorm
     ];
 
@@ -72,38 +80,10 @@
 
     programs.appimage.enable = true;
     programs.appimage.binfmt = true;
-    programs.obs-studio.enable = true;
 
     environment.systemPackages = with pkgs; [
-      android-tools
-      docker-compose
-
       ntfs3g
       ntfsprogs
-
-      firefox
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-      mpv
-      obs-studio
-      spotify
-
-      pass-wayland
-      gnupg
-      pinentry-qt
-
-      hledger
-      hledger-ui
-      obsidian
-      thunderbird
-      libqalculate
-      transmission_4-qt
-
-      copyq
-      element-desktop
-      mgba
-      nemo
-      nyxt
     ];
   };
 }

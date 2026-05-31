@@ -20,9 +20,6 @@
 
       nodejs_22
       elan
-      processing
-      godot
-      blender
       vscode
 
       pandoc

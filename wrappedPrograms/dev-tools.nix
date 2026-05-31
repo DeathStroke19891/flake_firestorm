@@ -9,6 +9,8 @@
         direnv
         jujutsu
         neovim
+        android-tools
+        docker-compose
       ];
     };
   };
