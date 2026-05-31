@@ -36,7 +36,11 @@
     fonts.packages = with pkgs; [
       liberation_ttf
       noto-fonts-color-emoji
-      noto-fonts-devanagari
+      lohit-fonts.devanagari
+      lohit-fonts.kannada
+      lohit-fonts.tamil
+      lohit-fonts.malayalam
+      lohit-fonts.telugu
       nerd-fonts.fira-code
       nerd-fonts.droid-sans-mono
       nerd-fonts.monaspace
