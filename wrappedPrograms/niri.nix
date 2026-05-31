@@ -102,7 +102,7 @@
         "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _: {};
 
         "Mod+K".focus-workspace-up = _: {};
-        "Mod+J".focus-workspce-down = _: {};
+        "Mod+J".focus-workspace-down = _: {};
         "Mod+1".focus-workspace = 1;
         "Mod+2".focus-workspace = 2;
         "Mod+3".focus-workspace = 3;
